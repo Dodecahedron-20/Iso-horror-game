@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 4f;
+    float moveSpeed = 2f;
     bool isSprinting = false;
 
     Vector3 forward, right;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            moveSpeed = 4f;
+            moveSpeed = 2f;
         }
     }
 
