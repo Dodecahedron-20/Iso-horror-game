@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 184723434}
   - component: {fileID: 184723433}
   - component: {fileID: 184723432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerPH
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -831,12 +831,11 @@ MonoBehaviour:
   player: {fileID: 0}
   spotted: 0
   fovAngle: 90
+  circ: 10
   speed: 0
   chaseSpeed: 0
   patrolTime: 0
   patrolWayPoints: []
-  memoryTime: 10
-  cone: {fileID: 0}
 --- !u!1 &496426745
 GameObject:
   m_ObjectHideFlags: 0

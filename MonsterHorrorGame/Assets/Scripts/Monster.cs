@@ -8,6 +8,7 @@ public class Monster : MonoBehaviour
     public Transform player;
     public bool spotted;
     public float fovAngle = 90f;
+    public float circ;
     public float speed;
     public float chaseSpeed;
     public float patrolTime;
@@ -28,6 +29,20 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, circ);
+        
+        foreach(var Player in hitColliders)
+        {
+            if(Player.gameObject.tag == "Player")
+            {
+                Debug.Log("Detected");
+            }
+        }
 
     }
 
@@ -44,5 +59,11 @@ public class Monster : MonoBehaviour
     void Attack()
     {
 
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, circ);
     }
 }
