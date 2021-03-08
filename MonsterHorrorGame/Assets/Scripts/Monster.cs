@@ -5,72 +5,44 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
-    public GameObject Player = null;
+    public Transform player;
+    public bool spotted;
+    public float fovAngle = 90f;
+    public float speed;
+    public float chaseSpeed;
+    public float patrolTime;
+    public Transform[] patrolWayPoints;
+    //private bool rememberPlayer;
+    //public float memoryTime = 10f;
+    //private float increasingMemoryTime;
 
     private NavMeshAgent nav;
 
-    private State MyState;
+    Rigidbody rb;
 
-    [SerializeField]
-    private float PointDistance = 0;
-    [SerializeField]
-    private float VisionConeAngle = 0;
-
-    // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-
-        MyState = State.WANDER;
+        rb = GetComponent<Rigidbody>();
     }
 
-    public enum State
-    {
-        WANDER,
-        CHASE,
-        KILL
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        var monsterEye = transform.position + Vector3.up;
-        var playerPosition = Player.transform.position + Vector3.up;
-        var direction = (Player.transform.position + Vector3.up) - (transform.position + Vector3.up);
-        var spotted = false;
-        RaycastHit hit;
 
-        if (Physics.Raycast(monsterEye, direction, out hit, float.PositiveInfinity))
-        {
-            if (hit.collider.gameObject.tag == "Player")
-            {
-                if (Vector3.Angle(transform.forward, direction) < VisionConeAngle)
-                {
-                    spotted = true;
-                }
-            }
-            else
-            {
-                playerPosition = hit.point;
-            }
-        }
+    }
 
-        if (spotted)
-        {
-            MyState = State.CHASE;
-        }
-        else
-        {
-            MyState = State.WANDER;
-        }
+    void Search()
+    {
 
-        if (spotted)
-        {
-            Debug.DrawLine(monsterEye, playerPosition, Color.red);
-        }
-        else
-        {
-            Debug.DrawLine(monsterEye, playerPosition, Color.blue);
-        }
+    }
+
+    void Chase()
+    {
+
+    }
+
+    void Attack()
+    {
+
     }
 }

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            moveSpeed = 2f;
+            moveSpeed = 3f;
         }
     }
 
