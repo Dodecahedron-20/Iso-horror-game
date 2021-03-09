@@ -831,7 +831,7 @@ MonoBehaviour:
   player: {fileID: 0}
   spotted: 0
   fovAngle: 90
-  circ: 10
+  range: 10
   speed: 0
   chaseSpeed: 0
   patrolTime: 0
