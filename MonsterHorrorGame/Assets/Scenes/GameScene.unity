@@ -830,12 +830,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   spotted: 0
-  fovAngle: 90
-  range: 10
+  fovAngle: 40
+  radius: 10
   speed: 0
   chaseSpeed: 0
-  patrolTime: 0
   patrolWayPoints: []
+  eyeHeight: 0
+  lastKnownPos: {x: 0, y: 0, z: 0}
+  sightColour: {r: 207, g: 169, b: 255, a: 255}
 --- !u!1 &496426745
 GameObject:
   m_ObjectHideFlags: 0

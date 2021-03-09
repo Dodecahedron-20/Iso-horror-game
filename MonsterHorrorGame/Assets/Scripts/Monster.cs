@@ -9,13 +9,13 @@ public class Monster : MonoBehaviour
     public Transform player;
 
     [SerializeField] bool spotted;
+    [Range (0, 360)]
     [SerializeField] float fovAngle;
-    [SerializeField] float range;
+    [SerializeField] float radius;
     [SerializeField] float speed;
     [SerializeField] float chaseSpeed;
 
     public Transform[] patrolWayPoints;
-    [Range(0, 360)]
     [SerializeField] float eyeHeight = 3.65f;
 
 
@@ -41,24 +41,21 @@ public class Monster : MonoBehaviour
 
     void Look()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var Player in hitColliders)
         {
             if (Player.gameObject.tag == "Player")
             {
-                Debug.Log("Detected");
-            }
-            else
-            {
-                Debug.Log("Not Detected");
+                Search();
             }
         }
     }
 
     void Search()
     {
-
+        
+        Debug.Log("Searching");
     }
 
     void Chase()
@@ -95,11 +92,11 @@ public class Monster : MonoBehaviour
         Gizmos.color = sightColour;
         //Gizmos.DrawWireSphere(eyePos, sightRange);
         Handles.color = sightColour;
-        Handles.DrawWireArc(eyePos - transform.forward, Vector3.up, Vector3.forward, 360, range);
+        Handles.DrawWireArc(eyePos - transform.forward, Vector3.up, Vector3.forward, 360, radius);
         Vector3 viewAngleA = DirectionFromAngle(-fovAngle / 2, false);
         Vector3 viewAngleB = DirectionFromAngle(fovAngle / 2, false);
-        Handles.DrawLine(eyePos - transform.forward, eyePos - transform.forward + viewAngleA * range);
-        Handles.DrawLine(eyePos - transform.forward, eyePos - transform.forward + viewAngleB * range);
+        Handles.DrawLine(eyePos - transform.forward, eyePos - transform.forward + viewAngleA * radius);
+        Handles.DrawLine(eyePos - transform.forward, eyePos - transform.forward + viewAngleB * radius);
 
         //Handles.color = Color.red;
         //if (playerTracker.Count > 0)
