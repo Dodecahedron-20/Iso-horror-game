@@ -50,4 +50,16 @@ public class countdown : MonoBehaviour
 
     }
 
+
+    private void NewCount()
+    {
+
+
+
+
+      seconds = countTime;
+
+
+    }
+
 }
