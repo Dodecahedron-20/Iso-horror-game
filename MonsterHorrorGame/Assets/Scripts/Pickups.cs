@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Pickups : MonoBehaviour
 {
-  [SerializeFeild]
+  [SerializeField]
   private GameObject torchIcon = null;
-  [SerializeFeild]
+  [SerializeField]
   private GameObject cardIcon = null;
-  [SerializeFeild]
+  [SerializeField]
   private GameObject keyIcon = null;
-  [SerializeFeild]
+  [SerializeField]
   private GameObject staminaIcon = null;
 
 
