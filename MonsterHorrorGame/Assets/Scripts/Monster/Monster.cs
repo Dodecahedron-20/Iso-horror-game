@@ -3,138 +3,117 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Monster : MonoBehaviour
+namespace Assets.Code
 {
-    public Transform player;
-
-    [SerializeField] bool spotted;
-    
-    [Range (0, 360)]
-    public float fovAngle;
-    public float radius;
-    
-    [SerializeField] float speed;
-    [SerializeField] float chaseSpeed;
-
-    [SerializeField] float waitTime;
-    public float startWaitTime;
-       
-    public Transform[] patrolSpots;
-    private int randomSpot;
-
-    public List<Transform> visibleTargets = new List<Transform>();
-
-    public LayerMask targetMask;
-    public LayerMask obstacleMask;
-
-    [SerializeField] private Vector3 lastKnownPos;
-    [SerializeField] Color sightColour = new Color(207, 169, 255, 255);
-
-    private NavMeshAgent nav;
-
-    Rigidbody rb;
-
-    RaycastHit hit;
-
-    void Start()
+    public class Monster : MonoBehaviour
     {
-        nav = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
+        public Transform player;
 
-        StartCoroutine("FindTargetsWithDelay", .2f);
+        [SerializeField] bool spotted;
 
-        randomSpot = Random.Range(0, patrolSpots.Length);
+        [Range(0, 360)]
+        public float fovAngle;
+        public float radius;
 
-        waitTime = startWaitTime;
-    }
+        [SerializeField] float speed;
+        [SerializeField] float chaseSpeed;
 
-    void Update()
-    {
-        Look();
-    }
+        public List<Transform> visibleTargets = new List<Transform>();
 
-    IEnumerator FindTargetsWithDelay(float delay)
-    {
-        while(true)
+        public LayerMask targetMask;
+        public LayerMask obstacleMask;
+
+        [SerializeField] private Vector3 lastKnownPos;
+        [SerializeField] Color sightColour = new Color(207, 169, 255, 255);
+
+        private NavMeshAgent nav;
+
+        Rigidbody rb;
+
+        RaycastHit hit;
+
+        void Start()
         {
-            yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
+            nav = GetComponent<NavMeshAgent>();
+            rb = GetComponent<Rigidbody>();
+
+            StartCoroutine("FindTargetsWithDelay", .2f);
         }
-    }
 
-    //Checks to see if there is a target within it's field of view angle using a raycast
-    void FindVisibleTargets()
-    {
-        visibleTargets.Clear();
-
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);
-
-        for(int i = 0; i < targetsInViewRadius.Length; i++)
+        void Update()
         {
-            Transform target = targetsInViewRadius[i].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if(Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2)
-            {
-                float dstToTarget = Vector3.Distance(transform.position, target.position);
+            Look();
+        }
 
-                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+        IEnumerator FindTargetsWithDelay(float delay)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(delay);
+                FindVisibleTargets();
+            }
+        }
+
+        //Checks to see if there is a target within it's field of view angle using a raycast
+        void FindVisibleTargets()
+        {
+            visibleTargets.Clear();
+
+            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);
+
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                Transform target = targetsInViewRadius[i].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2)
                 {
-                    visibleTargets.Add(target);
+                    float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                    {
+                        visibleTargets.Add(target);
+                    }
                 }
             }
         }
-    }
 
-    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
-    {
-        if (!angleIsGlobal)
+        public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
-            angleInDegrees += transform.eulerAngles.y;
-        }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
-
-    //Checks if player is within range of enemy
-    void Look()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-
-        foreach (var Player in hitColliders)
-        {
-            if (Player.gameObject.tag == "Player")
+            if (!angleIsGlobal)
             {
-                Search();
+                angleInDegrees += transform.eulerAngles.y;
+            }
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        }
+
+        //Checks if player is within range of enemy
+        void Look()
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+
+            foreach (var Player in hitColliders)
+            {
+                if (Player.gameObject.tag == "Player")
+                {
+                    Search();
+                }
             }
         }
-    }
 
-    //Patrols random waypoints within certain range for the player
-    void Search()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, patrolSpots[randomSpot].position, speed * Time.deltaTime);
-
-        if(Vector3.Distance(transform.position, patrolSpots[randomSpot].position) < 0.2f)
+        //Patrols random waypoints within certain range for the player
+        void Search()
         {
-            if(waitTime <= 0)
-            {
-                randomSpot = Random.Range(0, patrolSpots.Length);
-                waitTime = startWaitTime;
-            }
-            else
-            {
-                waitTime -= Time.deltaTime;
-            }
+
         }
-        Debug.Log("Searching");
-    }
 
-    void Chase()
-    {
+        void Chase()
+        {
 
-    }
+        }
 
-    void Attack()
-    {
+        void Attack()
+        {
 
+        }
     }
 }
