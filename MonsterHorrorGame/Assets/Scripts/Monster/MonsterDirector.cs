@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MonsterDirector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Monster monster;
 
-    // Update is called once per frame
+    [SerializeField] float startTimer;
+    [SerializeField] float timeSinceLastSpawn;
+    [SerializeField] float playerDistance;
+
     void Update()
     {
-        
+
     }
 }

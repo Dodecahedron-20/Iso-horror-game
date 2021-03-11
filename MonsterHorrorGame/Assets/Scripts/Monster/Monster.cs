@@ -2,118 +2,133 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Waypoints;
 
-namespace Assets.Code
+public class Monster : MonoBehaviour
 {
-    public class Monster : MonoBehaviour
+    public Transform player;
+
+    public float timer = 20f;
+
+    [SerializeField] bool spotted;
+
+    [Range(0, 360)]
+    public float fovAngle;
+    public float radius;
+
+    public float speed;
+
+    [SerializeField] float dist;
+
+    public List<Transform> visibleTargets = new List<Transform>();
+
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;
+
+    [SerializeField] private Vector3 lastKnownPos;
+    [SerializeField] Color sightColour = new Color(207, 169, 255, 255);
+
+    private NavMeshAgent nav;
+
+    Rigidbody rb;
+
+    RaycastHit hit;
+
+    void Start()
     {
-        public Transform player;
+        speed = GetComponent<NavMeshAgent>().speed = 2f;
 
-        [SerializeField] bool spotted;
+        nav = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
 
-        [Range(0, 360)]
-        public float fovAngle;
-        public float radius;
+        StartCoroutine("FindTargetsWithDelay", .2f);        
+    }
 
-        [SerializeField] float speed;
-        [SerializeField] float chaseSpeed;
+    void Update()
+    {
+        dist = Vector3.Distance(transform.position, player.transform.position);
 
-        public List<Transform> visibleTargets = new List<Transform>();
+        Look();
 
-        public LayerMask targetMask;
-        public LayerMask obstacleMask;
+        timer -= Time.deltaTime;
 
-        [SerializeField] private Vector3 lastKnownPos;
-        [SerializeField] Color sightColour = new Color(207, 169, 255, 255);
-
-        private NavMeshAgent nav;
-
-        Rigidbody rb;
-
-        RaycastHit hit;
-
-        void Start()
+        if(timer <= 0 && spotted == false && dist > 20)
         {
-            nav = GetComponent<NavMeshAgent>();
-            rb = GetComponent<Rigidbody>();
-
-            StartCoroutine("FindTargetsWithDelay", .2f);
+            Destroy(gameObject);
         }
+    }
 
-        void Update()
+    IEnumerator FindTargetsWithDelay(float delay)
+    {
+        while (true)
         {
-            Look();
+            yield return new WaitForSeconds(delay);
+            FindVisibleTargets();
         }
+    }
 
-        IEnumerator FindTargetsWithDelay(float delay)
+    //Checks to see if there is a target within it's field of view angle using a raycast
+    void FindVisibleTargets()
+    {
+        visibleTargets.Clear();
+
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);
+
+        for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
-            while (true)
+            Transform target = targetsInViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2)
             {
-                yield return new WaitForSeconds(delay);
-                FindVisibleTargets();
-            }
-        }
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-        //Checks to see if there is a target within it's field of view angle using a raycast
-        void FindVisibleTargets()
-        {
-            visibleTargets.Clear();
-
-            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);
-
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
-            {
-                Transform target = targetsInViewRadius[i].transform;
-                Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2)
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
-                    {
-                        visibleTargets.Add(target);
-                    }
+                    spotted = true;
+                    visibleTargets.Add(target);
+                    Chase();
+                    Debug.Log("Spotted");
                 }
             }
         }
+    }
 
-        public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    {
+        if (!angleIsGlobal)
         {
-            if (!angleIsGlobal)
+            angleInDegrees += transform.eulerAngles.y;
+        }
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    //Checks if player is within range of enemy
+    void Look()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (var Player in hitColliders)
+        {
+            if (Player.gameObject.tag == "Player")
             {
-                angleInDegrees += transform.eulerAngles.y;
-            }
-            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-        }
-
-        //Checks if player is within range of enemy
-        void Look()
-        {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-
-            foreach (var Player in hitColliders)
-            {
-                if (Player.gameObject.tag == "Player")
-                {
-                    Search();
-                }
+                timer += Time.deltaTime;
             }
         }
+    }
 
-        //Patrols random waypoints within certain range for the player
-        void Search()
-        {
+    void Chase()
+    {
+        speed = GetComponent<NavMeshAgent>().speed = 5f;
 
-        }
+        Vector3 dirToPlayer = transform.position - player.transform.position;
 
-        void Chase()
-        {
+        Vector3 newPos = transform.position - dirToPlayer;
 
-        }
+        nav.SetDestination(newPos);
+    }
 
-        void Attack()
-        {
+    void Attack()
+    {
 
-        }
     }
 }

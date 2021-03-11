@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 
-namespace Assets.Code
+namespace Waypoints
 {
     public class ConnectedWaypoint : Waypoint
     {

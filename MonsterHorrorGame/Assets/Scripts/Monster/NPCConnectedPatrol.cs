@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Code
+namespace Waypoints
 {
     public class NPCConnectedPatrol : MonoBehaviour
     {
@@ -63,7 +63,6 @@ namespace Assets.Code
                         Debug.LogError("Failed to find any waypoints for use in the scene");
                     }
                 }
-
                 SetDestination();
             }
         }
@@ -75,7 +74,7 @@ namespace Assets.Code
                 _travelling = false;
                 _waypointsVisited++;
 
-                if(_patrolWaiting)
+                if (_patrolWaiting)
                 {
                     _waiting = true;
                     _waitTimer = 0f;
@@ -86,10 +85,10 @@ namespace Assets.Code
                 }
             }
 
-            if(_waiting)
+            if (_waiting)
             {
                 _waitTimer += Time.deltaTime;
-                if(_waitTimer >= _totalWaitTime)
+                if (_waitTimer >= _totalWaitTime)
                 {
                     _waiting = false;
 
@@ -97,6 +96,7 @@ namespace Assets.Code
                 }
             }
         }
+
         private void SetDestination()
         {
             if (_waypointsVisited > 0)
