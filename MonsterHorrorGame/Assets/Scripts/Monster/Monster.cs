@@ -10,13 +10,14 @@ public class Monster : MonoBehaviour
 
     public float timer = 20f;
 
-    [SerializeField] bool spotted;
+    [SerializeField] bool spotted = false;
 
     [Range(0, 360)]
     public float fovAngle;
     public float radius;
 
     public float speed;
+    public float fovSpeed;
 
     [SerializeField] float dist;
 
@@ -56,6 +57,11 @@ public class Monster : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(fovAngle > 60 && spotted == false)
+        {
+            fovAngle -= fovSpeed * Time.deltaTime;
+        }
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -70,6 +76,7 @@ public class Monster : MonoBehaviour
     //Checks to see if there is a target within it's field of view angle using a raycast
     void FindVisibleTargets()
     {
+        Debug.Log("hey im lookin here");
         visibleTargets.Clear();
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);
@@ -78,7 +85,7 @@ public class Monster : MonoBehaviour
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2)
+            if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2) 
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -86,9 +93,18 @@ public class Monster : MonoBehaviour
                 {
                     spotted = true;
                     visibleTargets.Add(target);
+                    fovAngle += fovSpeed * Time.deltaTime;
                     Chase();
                     Debug.Log("Spotted");
                 }
+                else
+                {
+                    spotted = false;
+                }
+            }
+            else
+            {
+                spotted = false;
             }
         }
     }
@@ -118,13 +134,16 @@ public class Monster : MonoBehaviour
 
     void Chase()
     {
-        speed = GetComponent<NavMeshAgent>().speed = 5f;
+        if(spotted == true)
+        {
+            speed = GetComponent<NavMeshAgent>().speed = 5f;
 
-        Vector3 dirToPlayer = transform.position - player.transform.position;
+            Vector3 dirToPlayer = transform.position - player.transform.position;
 
-        Vector3 newPos = transform.position - dirToPlayer;
+            Vector3 newPos = transform.position - dirToPlayer;
 
-        nav.SetDestination(newPos);
+            nav.SetDestination(newPos);
+        }
     }
 
     void Attack()
