@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Pickups : MonoBehaviour
 {
-  [SerializeField]
-  private GameObject torchIcon = null;
-  [SerializeField]
-  private GameObject cardIcon = null;
-  [SerializeField]
-  private GameObject keyIcon = null;
+
   [SerializeField]
   private GameObject staminaIcon = null;
 
@@ -19,9 +14,8 @@ public class Pickups : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        torchIcon.SetActive(false);
-        cardIcon.SetActive(false);
-        keyIcon.SetActive(false);
+    
+        
         staminaIcon.SetActive(false);
     }
 
@@ -31,20 +25,8 @@ public class Pickups : MonoBehaviour
 
     }
 
-    public void CollectTorch()
-    {
-      torchIcon.SetActive(true);
-    }
+  
 
-    public void CollectCard()
-    {
-      cardIcon.SetActive(true);
-    }
-
-    public void CollectKey()
-    {
-      keyIcon.SetActive(true);
-    }
 
     public void CollectStamina()
     {

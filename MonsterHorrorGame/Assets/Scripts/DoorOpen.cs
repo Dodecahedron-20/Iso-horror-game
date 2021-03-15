@@ -8,7 +8,7 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private Animator anim;
     [SerializeField]
-    private bool active = true;
+    private bool unlocked = true;
 
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class DoorOpen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (active)
+        if (unlocked)
         {
             anim.SetTrigger("opendoor");
         }
@@ -33,9 +33,9 @@ public class DoorOpen : MonoBehaviour
 
     }
 
-    private void SetActive()
+    public void UnLock()
     {
-        active = true;
+        unlocked = true;
     }
 
 
