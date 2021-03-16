@@ -16,7 +16,8 @@ public class Monster : MonoBehaviour
     public float fovAngle;
     public float radius;
 
-    public float speed;
+    [SerializeField] float walkSpeed = 3f;
+    [SerializeField] float runSpeed = 5f;
     public float fovSpeed;
 
     [SerializeField] float dist;
@@ -37,9 +38,8 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        speed = GetComponent<NavMeshAgent>().speed = 2f;
-
         nav = GetComponent<NavMeshAgent>();
+
         rb = GetComponent<Rigidbody>();
 
         StartCoroutine("FindTargetsWithDelay", .2f);        
@@ -96,15 +96,18 @@ public class Monster : MonoBehaviour
                     fovAngle += fovSpeed * Time.deltaTime;
                     Chase();
                     Debug.Log("Spotted");
+                    nav.speed = runSpeed;
                 }
                 else
                 {
                     spotted = false;
+                    nav.speed = walkSpeed;
                 }
             }
             else
             {
                 spotted = false;
+                nav.speed = walkSpeed;
             }
         }
     }
@@ -136,8 +139,6 @@ public class Monster : MonoBehaviour
     {
         if(spotted == true)
         {
-            speed = GetComponent<NavMeshAgent>().speed = 5f;
-
             Vector3 dirToPlayer = transform.position - player.transform.position;
 
             Vector3 newPos = transform.position - dirToPlayer;

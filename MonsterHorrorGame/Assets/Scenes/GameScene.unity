@@ -342,8 +342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  sprintSpeed: 6
+  walkSpeed: 3
   maxStamina: 100
   currentStamina: 0
+  staminaToUse: 40
 --- !u!54 &184723433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1016,7 +1019,8 @@ MonoBehaviour:
   spotted: 0
   fovAngle: 60
   radius: 10
-  speed: 0
+  walkSpeed: 2
+  runSpeed: 5
   fovSpeed: 100
   dist: 0
   visibleTargets: []
@@ -1035,14 +1039,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492181478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b30c3c6cd2135b46a15c08427b43a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolWaiting: 1
   _totalWaitTime: 1
-  _switchProbability: 0.2
+  _switchProbability: 1
   _patrolPoints: []
 --- !u!1 &496426745
 GameObject:

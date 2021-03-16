@@ -5,15 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 2f;
+    float moveSpeed;
+    [SerializeField]
+    float sprintSpeed;
+    [SerializeField]
+    float walkSpeed;
+    [SerializeField]
+    float maxStamina;
+    [SerializeField]
+    float currentStamina;
+    [SerializeField]
+    int staminaToUse;
+
+    //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    //Coroutine regen;
+
     bool isSprinting = false;
     bool isDead;
-
-    public int maxStamina = 100;
-    public int currentStamina;
-
-    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
-    private Coroutine regen;
 
     Vector3 forward, right;
 
@@ -26,6 +34,8 @@ public class Player : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
         currentStamina = maxStamina;
+
+        //StartCoroutine(RegenStamina());
     }
 
     // Update is called once per frame
@@ -36,21 +46,21 @@ public class Player : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            isSprinting = true;
+            if(currentStamina > 0)
+            {
+                isSprinting = true;
+                Sprint();
+            }
+            else
+            {
+                moveSpeed = walkSpeed;
+                isSprinting = false;
+            }
         }
         else
         {
+            moveSpeed = walkSpeed;
             isSprinting = false;
-        }
-
-        if(isSprinting == true)
-        {
-            UseStamina(15);
-            moveSpeed = 6f;
-        }
-        else
-        {
-            moveSpeed = 3f;
         }
     }
 
@@ -67,32 +77,23 @@ public class Player : MonoBehaviour
         transform.position += upMovement;
     }
 
-    public void UseStamina(int amount)
+    private void Sprint()
     {
-        if(currentStamina - amount >= 0)
+        if(isSprinting == true)
         {
-            currentStamina -= amount;
-
-            if (regen != null)
-                StopCoroutine(regen);
-
-            regen = StartCoroutine(RegenStamina());
-        }
-        else
-        {
-            moveSpeed = 3f;
-            Debug.Log("Not enough stamina");
-        }
+            moveSpeed = sprintSpeed;
+            currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
+        }        
     }
 
-    private IEnumerator RegenStamina()
-    {
-        yield return new WaitForSeconds(2);
+    //IEnumerator RegenStamina()
+    //{
+    //    yield return new WaitForSeconds(2);
 
-        while(currentStamina < maxStamina)
-        {
-            currentStamina += maxStamina / 100;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
+    //    while (currentStamina <= 0)
+    //    {
+    //        currentStamina += maxStamina / 100;
+    //        yield return regenTick;
+    //    }  
+    //}
 }
