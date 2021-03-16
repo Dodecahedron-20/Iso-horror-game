@@ -994,14 +994,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492181478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 2, z: -4.35}
+  m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.70710653}
+  m_LocalPosition: {x: 3.27, y: 2, z: -6.0499997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 231645605}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &492181485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,10 +1018,11 @@ MonoBehaviour:
   timer: 20
   spotted: 0
   fovAngle: 60
+  currentFOVAngle: 0
   radius: 10
   walkSpeed: 2
   runSpeed: 5
-  fovSpeed: 100
+  fovSpeed: 1000
   dist: 0
   visibleTargets: []
   targetMask:
@@ -1039,7 +1040,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492181478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b30c3c6cd2135b46a15c08427b43a8b, type: 3}
   m_Name: 

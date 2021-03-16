@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         if(isSprinting == true)
         {
             moveSpeed = sprintSpeed;
-            currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
+            //currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
         }        
     }
 

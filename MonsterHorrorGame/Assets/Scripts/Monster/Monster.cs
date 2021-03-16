@@ -12,8 +12,10 @@ public class Monster : MonoBehaviour
 
     [SerializeField] bool spotted = false;
 
-    [Range(0, 360)]
+    
     public float fovAngle;
+    [Range(0, 360)]
+    public float currentFOVAngle;
     public float radius;
 
     [SerializeField] float walkSpeed = 3f;
@@ -42,7 +44,9 @@ public class Monster : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        StartCoroutine("FindTargetsWithDelay", .2f);        
+        StartCoroutine("FindTargetsWithDelay", .2f);
+
+        currentFOVAngle = fovAngle;
     }
 
     void Update()
@@ -58,9 +62,26 @@ public class Monster : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(fovAngle > 60 && spotted == false)
+        //if(currentFOVAngle > 60 && spotted == false)
+        //{
+        //    currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+        //}
+        //else
+        //{
+        //    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+        //}
+    }
+
+    IEnumerator FOVChange()
+    {
+        if (currentFOVAngle > 60 && spotted == false)
         {
-            fovAngle -= fovSpeed * Time.deltaTime;
+            currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+        }
+        else          
+        {
+            yield return new WaitForSeconds(5f);
+            currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
         }
     }
 
@@ -85,31 +106,40 @@ public class Monster : MonoBehaviour
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < fovAngle / 2) 
+            if (Vector3.Angle(transform.forward, dirToTarget) < currentFOVAngle / 2) 
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
+                    StartCoroutine(Chase());
+                    StartCoroutine(FOVChange());
                     spotted = true;
                     visibleTargets.Add(target);
-                    fovAngle += fovSpeed * Time.deltaTime;
-                    Chase();
-                    Debug.Log("Spotted");
-                    nav.speed = runSpeed;
+                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+                    //Chase();
+                    Debug.Log("Spotted");                    
                 }
                 else
                 {
-                    spotted = false;
-                    nav.speed = walkSpeed;
+                    Invoke("SetBoolFalse", 3f);
+                    //spotted = false;
+                    //nav.speed = walkSpeed;
                 }
             }
             else
             {
-                spotted = false;
-                nav.speed = walkSpeed;
+                Invoke("SetBoolFalse", 3f);
+                //spotted = false;
+                //nav.speed = walkSpeed;
             }
         }
+    }
+
+    void SetBoolFalse()
+    {
+        spotted = false;
+        nav.speed = walkSpeed;
     }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
@@ -135,16 +165,41 @@ public class Monster : MonoBehaviour
         }
     }
 
-    void Chase()
+    //void Chase()
+    //{
+    //    if (spotted == true)
+    //    {
+    //        Vector3 dirToPlayer = transform.position - player.transform.position;
+
+    //        Vector3 newPos = transform.position - dirToPlayer;
+
+    //        nav.SetDestination(newPos);
+    //    }
+    //}
+
+    IEnumerator Chase()
     {
-        if(spotted == true)
-        {
-            Vector3 dirToPlayer = transform.position - player.transform.position;
+        yield return new WaitForSeconds(0.2f);
 
-            Vector3 newPos = transform.position - dirToPlayer;
+        nav.speed = runSpeed;
 
-            nav.SetDestination(newPos);
-        }
+        Vector3 dirToPlayer = transform.position - player.transform.position;
+
+        Vector3 newPos = transform.position - dirToPlayer;
+
+        nav.SetDestination(newPos);
+
+        yield return new WaitForSeconds(5f);
+        //if (spotted == true)
+        //{
+        //    nav.speed = runSpeed;
+
+        //    Vector3 dirToPlayer = transform.position - player.transform.position;
+
+        //    Vector3 newPos = transform.position - dirToPlayer;
+
+        //    nav.SetDestination(newPos);
+        //}
     }
 
     void Attack()
