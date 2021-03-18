@@ -6,7 +6,7 @@ using Waypoints;
 
 public class Monster : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
 
     public float timer = 20f;
 
@@ -23,6 +23,8 @@ public class Monster : MonoBehaviour
     public float fovSpeed;
 
     [SerializeField] float dist;
+
+    public float damage;
 
     public List<Transform> visibleTargets = new List<Transform>();
 
@@ -204,9 +206,10 @@ public class Monster : MonoBehaviour
 
     void OnTriggerEnter(Collider player)
     {
-        if(player.transform.tag == "Player")
+        if(player.gameObject.tag == "Player")
         {
-            //player.GetComponent<Player>().Death;
+            Debug.Log("pow");
+            player.gameObject.GetComponent<Player>().health -= damage;
         }
     }
 }

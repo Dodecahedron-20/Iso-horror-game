@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     int staminaToUse;
 
     public float health;
+    public TextMeshProUGUI gameOverText;
 
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
@@ -64,6 +67,12 @@ public class Player : MonoBehaviour
             moveSpeed = walkSpeed;
             isSprinting = false;
         }
+
+        if(health <= 0)
+        {
+            Debug.Log("ded");
+            StartCoroutine(Death());
+        }
     }
 
     private void Move()
@@ -99,11 +108,12 @@ public class Player : MonoBehaviour
     //    }  
     //}
 
-    public void Death()
+    IEnumerator Death()
     {
-        if(health <= 0)
-        {
-
-        }
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0;
+        gameOverText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("GameScene");
     }
 }
