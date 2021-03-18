@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     int staminaToUse;
 
+    public float health;
+
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
 
@@ -96,4 +98,12 @@ public class Player : MonoBehaviour
     //        yield return regenTick;
     //    }  
     //}
+
+    public void Death()
+    {
+        if(health <= 0)
+        {
+
+        }
+    }
 }

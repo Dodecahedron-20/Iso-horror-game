@@ -202,8 +202,11 @@ public class Monster : MonoBehaviour
         //}
     }
 
-    void Attack()
+    void OnTriggerEnter(Collider player)
     {
-
+        if(player.transform.tag == "Player")
+        {
+            //player.GetComponent<Player>().Death;
+        }
     }
 }
