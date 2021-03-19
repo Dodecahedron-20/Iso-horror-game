@@ -8,7 +8,9 @@ public class Sound
 
     public AudioClip clip;
 
+    [Range(0f, 1f)]
     public float pitchVariance;
+    [Range(0f, 1f)]
     public float volumeVariance;
 
     [Range(0f, 1f)]

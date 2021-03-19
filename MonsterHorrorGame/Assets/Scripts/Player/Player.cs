@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1f);
-        Time.timeScale = 0;
         gameOverText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("GameScene");

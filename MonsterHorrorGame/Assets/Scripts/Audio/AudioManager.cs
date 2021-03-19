@@ -34,6 +34,20 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        if(Application.loadedLevelName == "Insert Scene Name for different Music")
+        {
+            Destroy(this.gameObject);
+        }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Stop("CurrentMusic");
+            Play("NextMusic");
+        }
+    }
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -60,5 +74,15 @@ public class AudioManager : MonoBehaviour
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
         s.source.Stop();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Stop();
+        if(s == null)
+        {
+            return;
+        }
     }
 }
