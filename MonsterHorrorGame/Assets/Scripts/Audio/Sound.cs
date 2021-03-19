@@ -8,6 +8,9 @@ public class Sound
 
     public AudioClip clip;
 
+    public float pitchVariance;
+    public float volumeVariance;
+
     [Range(0f, 1f)]
     public float volume;
     [Range(.1f, 3f)]
@@ -17,5 +20,4 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
-
 }
