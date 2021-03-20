@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.gameanalytics.sdk": {
-      "version": "file:D:/Users/932400978/Downloads/GA-SDK-UNITY-master/GA-SDK-UNITY-master",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.collab-proxy": {
       "version": "1.3.8",
       "depth": 0,
