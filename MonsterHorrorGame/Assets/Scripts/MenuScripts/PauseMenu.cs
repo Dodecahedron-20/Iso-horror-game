@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -48,6 +49,7 @@ public class PauseMenu : MonoBehaviour
         paused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
 
 
     }
@@ -58,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         paused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Resume()
