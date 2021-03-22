@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        //analytics maze started
     }
 
     // Update is called once per frame
@@ -76,6 +77,7 @@ public class PauseMenu : MonoBehaviour
     public void Resign()
     {
         SceneManager.LoadScene(0);
+        //analytics maze (lost?)
     }
 
 }

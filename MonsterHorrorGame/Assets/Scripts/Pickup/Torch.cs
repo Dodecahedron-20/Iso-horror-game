@@ -28,13 +28,14 @@ public class Torch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         torchIcon.SetActive(true);
         playerLight.SetActive(true);
+        //game analytics collected torch
         Destroy(torch);
     }
 

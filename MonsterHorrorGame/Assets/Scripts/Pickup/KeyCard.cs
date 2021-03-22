@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyCard : MonoBehaviour
 {
 
-    //lab room doors (tube of goo room)
+    //linked doors:
     [SerializeField]
     private DoorOpen door1;
     [SerializeField]
@@ -39,7 +39,7 @@ public class KeyCard : MonoBehaviour
         Destroy(keyCard);
     }
 
-
+    //set doors to unlocked
     private void UnlockDoors()
     {
         door1.UnLock();
@@ -47,6 +47,6 @@ public class KeyCard : MonoBehaviour
         door3.UnLock();
     }
 
-    
+
 
 }

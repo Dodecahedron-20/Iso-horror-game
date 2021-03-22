@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
   public void StartGame()
   {
       SceneManager.LoadScene(1);
+      //Game Analytics start goes here.
+      //progress: Game. Started.
   }
 
 
