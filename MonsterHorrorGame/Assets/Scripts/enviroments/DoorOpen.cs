@@ -18,6 +18,8 @@ public class DoorOpen : MonoBehaviour
     private AudioSource closeAudio = null;
     [SerializeField]
     private AudioSource beepAudio = null;
+    [SerializeField]
+    private AudioSource brrrrAudio = null;
 
 
     // Start is called before the first frame update
@@ -37,6 +39,10 @@ public class DoorOpen : MonoBehaviour
         if (unlocked)
         {
             anim.SetTrigger("opendoor");
+        }
+        else
+        {
+          brrrrAudio.Play();
         }
 
 
