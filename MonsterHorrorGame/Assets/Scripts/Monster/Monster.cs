@@ -10,7 +10,7 @@ public class Monster : MonoBehaviour
 
     public float timer = 20f;
 
-    [SerializeField] bool spotted = false;
+    public bool spotted = false;
 
     
     public float fovAngle;
@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     public float fovSpeed;
 
-    [SerializeField] float dist;
+    public float dist;
 
     public float damage;
 
