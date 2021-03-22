@@ -8,8 +8,6 @@ public class MonsterDirector : MonoBehaviour
 
     [SerializeField] bool monsterActive;
     [SerializeField] float timer;
-    [SerializeField] float timeSinceLastSpawn;
-    [SerializeField] float playerDistance;
 
     public List<Waypoint> spawnPoints;
 
@@ -32,12 +30,12 @@ public class MonsterDirector : MonoBehaviour
 
     void CheckMonsterStatus()
     {
-        if (monster == false)
+        if (monsterActive == false)
         {
             SpawnMonster();
         }
 
-        if (monster == true)
+        if (monsterActive == true)
         {
             DespawnMonster();
         }
@@ -45,7 +43,7 @@ public class MonsterDirector : MonoBehaviour
 
     void SpawnMonster()
     {
-        if (timer <= 0)
+        if (timer <= 0 && monsterActive == false)
         {
             monster.gameObject.SetActive(true);
             monsterActive = true;
@@ -57,11 +55,9 @@ public class MonsterDirector : MonoBehaviour
     {
         var monster = GetComponent<Monster>();
 
-        timer = Mathf.Clamp(timer -= Time.deltaTime, 0, 20);
-
         if (timer <= 0 && monster.spotted == false && monster.dist > 20)
         {
-            monster.gameObject.SetActive(false);
+            this.monster.gameObject.SetActive(false);
             monsterActive = false;
             timer = 20f;
         }

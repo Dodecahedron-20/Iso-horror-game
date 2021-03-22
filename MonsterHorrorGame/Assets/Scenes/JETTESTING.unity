@@ -13814,8 +13814,6 @@ MonoBehaviour:
   monster: {fileID: 0}
   monsterActive: 0
   timer: 20
-  timeSinceLastSpawn: 0
-  playerDistance: 0
   spawnPoints: []
 --- !u!4 &1433457296
 Transform:
