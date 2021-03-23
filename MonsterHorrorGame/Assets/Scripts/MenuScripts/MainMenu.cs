@@ -16,11 +16,12 @@ public class MainMenu : MonoBehaviour
   private GameObject QuitPrompt = null;
     //Audio interactions
     [SerializeField]
-    private AudioSource clickAudio = null;
+    private AudioSource clickAudio;
 
   //Start the Game things:
   public void StartGame()
   {
+      clickAudio.Play();
       SceneManager.LoadScene(1);
       GameAnalytics.Initialize();
       GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
@@ -51,7 +52,7 @@ public class MainMenu : MonoBehaviour
   //when selecting the quit button bring up the Quit Yes/no option
   public void QuitPromptOn()
   {
-
+      clickAudio.Play();
       QuitPrompt.SetActive(true);
       Menu.SetActive(false);
   }
@@ -59,6 +60,7 @@ public class MainMenu : MonoBehaviour
   //selecting No and closing the quit prompt
   public void QuitPromptOff()
   {
+      clickAudio.Play();
       QuitPrompt.SetActive(false);
       Menu.SetActive(true);
   }
@@ -66,6 +68,7 @@ public class MainMenu : MonoBehaviour
   //selecting yes and quitting the game
   public void QuitGame()
   {
+        clickAudio.Play();
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Main Menu");
         Application.Quit();
   }
