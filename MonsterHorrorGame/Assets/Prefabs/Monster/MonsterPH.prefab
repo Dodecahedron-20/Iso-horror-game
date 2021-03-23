@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa11b9d7043cfb244968ad5eec643f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4567602876793302710, guid: 2291b6edc471df448a34a4e3e478bedc, type: 3}
   timer: 20
   spotted: 0
   fovAngle: 60

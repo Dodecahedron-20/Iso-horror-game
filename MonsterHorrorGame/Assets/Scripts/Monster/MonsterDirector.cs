@@ -8,6 +8,7 @@ public class MonsterDirector : MonoBehaviour
 
     [SerializeField] bool monsterActive;
     [SerializeField] float timer;
+    private int randomSpawn;
 
     [SerializeField]
     public GameObject[] spawnPoints;
@@ -18,7 +19,7 @@ public class MonsterDirector : MonoBehaviour
 
         spawnPoints = GameObject.FindGameObjectsWithTag("Waypoint");
 
-        //StartCoroutine(CheckMonsterStatus());
+        InvokeRepeating("CheckMonsterStatus", 3.0f, 5f);
     }
 
     void Update()
@@ -29,11 +30,6 @@ public class MonsterDirector : MonoBehaviour
         {
             monsterActive = true;
         }
-
-        if(timer <=0)
-        {
-            CheckMonsterStatus();
-        } 
     }
 
     void CheckMonsterStatus()
@@ -53,7 +49,8 @@ public class MonsterDirector : MonoBehaviour
     {
         if (timer <= 0 && monsterActive == false)
         {
-            monster.gameObject.SetActive(true);
+            randomSpawn = Random.Range(0, spawnPoints.Length);
+            Instantiate(monster, spawnPoints[randomSpawn].transform);
             monsterActive = true;
             timer = 20f;
         }

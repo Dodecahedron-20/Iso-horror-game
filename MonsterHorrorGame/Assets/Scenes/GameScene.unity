@@ -931,7 +931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &492181479
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1506,6 +1506,7 @@ MonoBehaviour:
   monster: {fileID: 4755201043035092569, guid: 88ddd5d4728af534bb9b83edd705c1ba, type: 3}
   monsterActive: 0
   timer: 0
+  randomSpawn: 0
   spawnPoints: []
 --- !u!4 &674040917
 Transform:
