@@ -14,7 +14,9 @@ public class MainMenu : MonoBehaviour
   private GameObject CreditMenu = null;
   [SerializeField]
   private GameObject QuitPrompt = null;
-
+    //Audio interactions
+    [SerializeField]
+    private AudioSource clickAudio = null;
 
   //Start the Game things:
   public void StartGame()
@@ -30,12 +32,14 @@ public class MainMenu : MonoBehaviour
   //turn credits menu on
   public void CreditsOn()
   {
+      clickAudio.Play();
       CreditMenu.SetActive(true);
       Menu.SetActive(false);
   }
   //turn credits menu off
   public void CreditsOff()
   {
+       clickAudio.Play();
       CreditMenu.SetActive(false);
       Menu.SetActive(true);
   }
@@ -47,6 +51,7 @@ public class MainMenu : MonoBehaviour
   //when selecting the quit button bring up the Quit Yes/no option
   public void QuitPromptOn()
   {
+
       QuitPrompt.SetActive(true);
       Menu.SetActive(false);
   }
