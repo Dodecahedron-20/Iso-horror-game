@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class FinalKey : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class FinalKey : MonoBehaviour
     private void CollectKey()
     {
         keyIcon.SetActive(true);
+        GameAnalytics.NewDesignEvent("key");
         Destroy(key);
     }
 }

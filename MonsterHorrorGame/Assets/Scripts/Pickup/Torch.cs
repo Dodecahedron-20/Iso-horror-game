@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class Torch : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Torch : MonoBehaviour
     {
         torchIcon.SetActive(true);
         playerLight.SetActive(true);
-        //game analytics collected torch
+        GameAnalytics.NewDesignEvent("torch");
         Destroy(torch);
     }
 

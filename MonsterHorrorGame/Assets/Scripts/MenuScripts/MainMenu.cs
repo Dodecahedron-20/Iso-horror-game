@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class MainMenu : MonoBehaviour
   public void StartGame()
   {
       SceneManager.LoadScene(1);
-      //Game Analytics start goes here.
-      //progress: Game. Started.
-  }
+      GameAnalytics.Initialize();
+      GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
+   }
 
 
 
@@ -60,7 +61,8 @@ public class MainMenu : MonoBehaviour
   //selecting yes and quitting the game
   public void QuitGame()
   {
-      Application.Quit();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Main Menu");
+        Application.Quit();
   }
 
 }
