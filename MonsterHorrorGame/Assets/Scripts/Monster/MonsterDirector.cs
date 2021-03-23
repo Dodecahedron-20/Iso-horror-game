@@ -52,10 +52,10 @@ public class MonsterDirector : MonoBehaviour
         if (timer <= 0 && monsterActive == false)
         {
             randomSpawn = Random.Range(0, spawnPoints.Length);
-            if(player.dist)
-            {
+            //if(player.dist)
+            //{
 
-            }
+            //}
             Instantiate(monster, spawnPoints[randomSpawn].transform);
             monsterActive = true;
             timer = 20f;

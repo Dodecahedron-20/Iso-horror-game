@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(transform.position, waypoint);
+        //dist = Vector3.Distance(transform.position, waypoint);
 
         if (Input.anyKey)
             Move();
