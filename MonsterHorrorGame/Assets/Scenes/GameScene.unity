@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2428159c1ee374c94b6261a6028c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 492181484}
+  monster: {fileID: 4755201043035092569, guid: 88ddd5d4728af534bb9b83edd705c1ba, type: 3}
   monsterActive: 0
   timer: 0
   spawnPoints: []
