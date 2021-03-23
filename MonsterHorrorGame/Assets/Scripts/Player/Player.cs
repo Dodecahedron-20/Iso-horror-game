@@ -22,11 +22,16 @@ public class Player : MonoBehaviour
     public float health;
     public TextMeshProUGUI gameOverText;
 
+    public float dist;
+
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
 
     bool isSprinting = false;
     bool isDead;
+
+    [HideInInspector]
+    public GameObject[] waypoint;
 
     Vector3 forward, right;
 
@@ -40,12 +45,16 @@ public class Player : MonoBehaviour
 
         currentStamina = maxStamina;
 
+        waypoint = GameObject.FindGameObjectsWithTag("Waypoint");
+
         //StartCoroutine(RegenStamina());
     }
 
     // Update is called once per frame
     void Update()
     {
+        dist = Vector3.Distance(transform.position, waypoint);
+
         if (Input.anyKey)
             Move();
 

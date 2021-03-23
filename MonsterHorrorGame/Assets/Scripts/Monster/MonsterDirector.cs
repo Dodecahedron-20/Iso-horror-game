@@ -47,9 +47,15 @@ public class MonsterDirector : MonoBehaviour
 
     void SpawnMonster()
     {
+        var player = GetComponent<Player>();
+
         if (timer <= 0 && monsterActive == false)
         {
             randomSpawn = Random.Range(0, spawnPoints.Length);
+            if(player.dist)
+            {
+
+            }
             Instantiate(monster, spawnPoints[randomSpawn].transform);
             monsterActive = true;
             timer = 20f;
