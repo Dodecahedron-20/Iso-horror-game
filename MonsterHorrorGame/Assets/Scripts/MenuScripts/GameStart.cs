@@ -40,18 +40,28 @@ public class GameStart : MonoBehaviour
     //WaitForSeconds then add letter to string WORKS but like, should I really?
     IEnumerator Intro()
     {
-      yield return new WaitForSeconds(2);
-
-      TurnOff();
-    }
-
-
-    private void TurnOff()
-    {
-      
-      anim.SetBool("fadeOut", true);
+      yield return new WaitForSeconds(1);
       text.SetActive(false);
+
+      yield return new WaitForSeconds(0.5f);
+      text.SetActive(true);
+
+      yield return new WaitForSeconds(1f);
+      text.SetActive(false);
+
+      yield return new WaitForSeconds(0.5f);
+      text.SetActive(true);
+
+      yield return new WaitForSeconds(1f);
+      text.SetActive(false);
+
+      yield return new WaitForSeconds(1);
+      anim.SetBool("fadeOut", true);
+
+
     }
+
+
 
 
 
