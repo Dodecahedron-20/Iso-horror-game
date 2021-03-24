@@ -17,7 +17,7 @@ public class MonsterDirector : MonoBehaviour
     {
         timer = 20f;
 
-        spawnPoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        spawnPoints = GameObject.FindGameObjectsWithTag("Spawnpoint");
 
         InvokeRepeating("CheckMonsterStatus", 3.0f, 5f);
     }
@@ -51,15 +51,25 @@ public class MonsterDirector : MonoBehaviour
 
         if (timer <= 0 && monsterActive == false)
         {
-            randomSpawn = Random.Range(0, spawnPoints.Length);
-            //if(player.dist)
-            //{
-
-            //}
-            Instantiate(monster, spawnPoints[randomSpawn].transform);
+            //randomSpawn = Random.Range(0, spawnPoints.Length);
+            Instantiate(monster, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity);
             monsterActive = true;
             timer = 20f;
         }
+    }
+
+    private int RandomSpawnPoint()
+    {
+        int sp = 0;
+
+        sp = Random.Range(0, spawnPoints.Length);
+
+        if (!spawnPoints[sp].activeSelf)
+        {
+            sp = RandomSpawnPoint();
+        }
+
+        return sp;
     }
 
     void DespawnMonster()
@@ -70,7 +80,7 @@ public class MonsterDirector : MonoBehaviour
         {
             Destroy(this.monster.gameObject);
             monsterActive = false;
-            if(monster == null)
+            if(monster != null)
             {
                 timer = 20f;
             }          
