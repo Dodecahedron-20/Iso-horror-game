@@ -10,14 +10,21 @@ public class GameStart : MonoBehaviour
   [SerializeField]
   private GameObject blackground = null;
   [SerializeField]
+  private GameObject text = null;
+  [SerializeField]
   private Text introText = null;
+
+  [SerializeField]
+  private Animator anim;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
       blackground.SetActive(true);
-      //StartCoroutine(Intro());
+      text.SetActive(true);
+      StartCoroutine(Intro());
 
 
 
@@ -30,41 +37,21 @@ public class GameStart : MonoBehaviour
 
     }
 
-    //testing something dumb but fun? probably to chunky though
+    //WaitForSeconds then add letter to string WORKS but like, should I really?
     IEnumerator Intro()
     {
-      introText.text = "E";
-      yield return new WaitForSeconds(0.2f);
+      yield return new WaitForSeconds(2);
 
-      introText.text = "Em";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Eme";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emer";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emere";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emereg";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emerege";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emeregen";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emeregenc";
-      yield return new WaitForSeconds(0.2f);
-
-      introText.text = "Emeregency";
-      yield return new WaitForSeconds(0.2f);
+      TurnOff();
     }
 
 
+    private void TurnOff()
+    {
+      
+      anim.SetBool("fadeOut", true);
+      text.SetActive(false);
+    }
 
 
 

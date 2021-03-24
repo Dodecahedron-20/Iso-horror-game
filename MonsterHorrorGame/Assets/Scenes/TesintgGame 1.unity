@@ -1647,7 +1647,6 @@ MonoBehaviour:
   staminaToUse: 0
   health: 0
   gameOverText: {fileID: 0}
-  dist: 0
   waypoint: []
 --- !u!54 &184723433
 Rigidbody:
@@ -21345,6 +21344,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4141713140021111724, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5989641166617071282, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -21456,6 +21459,10 @@ PrefabInstance:
     - target: {fileID: 5989641167914382106, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444214861014749559, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7877815134194680914, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
       propertyPath: m_AnchorMax.y
