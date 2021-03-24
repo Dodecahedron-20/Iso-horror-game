@@ -7,7 +7,7 @@ using GameAnalyticsSDK;
 public class PauseMenu : MonoBehaviour
 {
 
-
+//pause menu featuring the "inventory" "Menu"
 
 
   //Pause Menu:
@@ -15,6 +15,10 @@ public class PauseMenu : MonoBehaviour
   private GameObject pauseMenu = null;
   private bool paused = false;
 
+  //inventory Menu:
+  [SerializeField]
+  private GameObject inventory;
+  private bool checkinven = false;
 
 
     // Start is called before the first frame update
@@ -42,21 +46,35 @@ public class PauseMenu : MonoBehaviour
 
       }
 
+      if (Input.GetKeyDown(KeyCode.E))
+      {
+        if (checkinven == false)
+        {
+          InventoryON();
+        }
+        else
+        {
+          InventoryOFF();
+        }
+      }
+
     }
 
     // Pause Menu things:
 
     private void PauseMenuON()
     {
+      if (checkinven)
+      {
+          InventoryOFF();
+      }
         paused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-
-
     }
 
-    //pause Menu Buttons
+
     private void PauseMenuOFF()
     {
         paused = false;
@@ -65,6 +83,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //pause Menu Buttons
     public void Resume()
     {
         PauseMenuOFF();
@@ -79,6 +98,23 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game");
+    }
+
+    //inventory
+    private void InventoryON()
+    {
+      if (paused)
+      {
+        PauseMenuOFF();
+      }
+      checkinven = true;
+      inventory.SetActive(true);
+    }
+
+    private void InventoryOFF()
+    {
+      checkinven = false;
+      inventory.SetActive(false);
     }
 
 }
