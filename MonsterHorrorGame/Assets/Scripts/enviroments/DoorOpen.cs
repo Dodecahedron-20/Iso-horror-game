@@ -15,8 +15,6 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private AudioSource openAudio = null;
     [SerializeField]
-    private AudioSource closeAudio = null;
-    [SerializeField]
     private AudioSource beepAudio = null;
     [SerializeField]
     private AudioSource brrrrAudio = null;
@@ -67,10 +65,7 @@ public class DoorOpen : MonoBehaviour
 
     }
 
-    public void CloseAudio()
-    {
-      closeAudio.Play();
-    }
+
 
 
 
