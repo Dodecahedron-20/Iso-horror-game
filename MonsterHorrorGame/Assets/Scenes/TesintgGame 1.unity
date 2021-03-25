@@ -2541,7 +2541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   sprintSpeed: 6
-  walkSpeed: 3
+  walkSpeed: 1.5
   maxStamina: 100
   currentStamina: 0
   staminaToUse: 0

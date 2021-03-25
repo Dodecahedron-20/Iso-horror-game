@@ -1245,7 +1245,7 @@ MonoBehaviour:
   fovAngle: 60
   currentFOVAngle: 0
   radius: 10
-  walkSpeed: 2
+  walkSpeed: 1
   runSpeed: 5
   fovSpeed: 1000
   dist: 0
@@ -1685,6 +1685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 4755201043035092569, guid: 88ddd5d4728af534bb9b83edd705c1ba, type: 3}
   monsterClone: {fileID: 0}
+  monsterScript: {fileID: 0}
   monsterActive: 0
   timer: 0
   spawnPoints: []

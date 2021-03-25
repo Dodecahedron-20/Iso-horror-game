@@ -9,7 +9,6 @@ public class MonsterDirector : MonoBehaviour
 
     [SerializeField] bool monsterActive;
     public float timer;
-    private int randomSpawn;
 
     [SerializeField]
     public GameObject[] spawnPoints;
@@ -52,7 +51,6 @@ public class MonsterDirector : MonoBehaviour
 
         if (timer <= 0 && monsterActive == false)
         {
-            //randomSpawn = Random.Range(0, spawnPoints.Length);
             monsterClone = Instantiate(monsterPrefab.gameObject, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity).transform;
             monsterActive = true;
             timer = 20f;

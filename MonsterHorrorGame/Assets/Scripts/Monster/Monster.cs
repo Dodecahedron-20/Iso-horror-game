@@ -41,6 +41,8 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         nav = GetComponent<NavMeshAgent>();
 
         rb = GetComponent<Rigidbody>();
@@ -55,6 +57,8 @@ public class Monster : MonoBehaviour
         dist = Vector3.Distance(transform.position, player.transform.position);
 
         Look();
+
+        nav.speed = walkSpeed;
 
         //if(currentFOVAngle > 60 && spotted == false)
         //{
