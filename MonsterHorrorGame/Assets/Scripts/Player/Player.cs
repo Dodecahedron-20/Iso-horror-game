@@ -140,4 +140,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("GameScene");
     }
+
+    public void PlayerSteps()
+    {
+        FindObjectOfType<AudioManager>().Play("playerFootsteps");
+    }
+
 }

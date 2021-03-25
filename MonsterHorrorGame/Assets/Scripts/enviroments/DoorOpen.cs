@@ -12,12 +12,12 @@ public class DoorOpen : MonoBehaviour
 
     private bool beep = false;
 
-    [SerializeField]
-    private AudioSource openAudio = null;
-    [SerializeField]
-    private AudioSource beepAudio = null;
-    [SerializeField]
-    private AudioSource brrrrAudio = null;
+    //[SerializeField]
+    //private AudioSource openAudio = null;
+    //[SerializeField]
+    //private AudioSource beepAudio = null;
+    //[SerializeField]
+    //private AudioSource brrrrAudio = null;
 
 
     // Start is called before the first frame update

@@ -66,15 +66,20 @@ public class MiscAudio : MonoBehaviour
     //probably not?
     IEnumerator LabAudio()
     {
-      if (lab)
-      {
-        //FindObjectOfType<AudioManager>().Play("goo-bubbles");
-        yield return new WaitForSeconds(goo);
+         if (lab)
+          {
+            FindObjectOfType<AudioManager>().Play("bubble1");
+             yield return new WaitForSeconds(0.8f);
+
+            FindObjectOfType<AudioManager>().Play("bubble2");
+            yield return new WaitForSeconds(0.5f);
+
+            FindObjectOfType<AudioManager>().Play("bubble3");
+            yield return new WaitForSeconds(1f);
 
 
-
-        StartCoroutine(LabAudio());
-      }
+            StartCoroutine(LabAudio());
+          }
     }
 
 

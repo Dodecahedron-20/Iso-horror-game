@@ -68,11 +68,67 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
+  - name: UI-Click
+    clip: {fileID: 8300000, guid: 34f32502fe642af42825f1fb1690d2d7, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0
-    pitch: 0
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Door-Whoosh
+    clip: {fileID: 8300000, guid: 85a56731e199642ae880021bedf50610, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Door-Brrr
+    clip: {fileID: 8300000, guid: fcd655166fe2c40d280c8c7dadf8c451, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.4
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: monsterGrowl
+    clip: {fileID: 8300000, guid: 5dbb167c44b8adc47835b1b6152d0f2b, type: 3}
+    pitchVariance: 0
+    volumeVariance: 1
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: wind-whistle
+    clip: {fileID: 8300000, guid: b8b67f93753e0554699529c0c1408360, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.05
+    pitch: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - name: bubble1
+    clip: {fileID: 8300000, guid: b7c20abb6aaf15c47aee233e7bbdaa16, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.4
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: bubble2
+    clip: {fileID: 8300000, guid: cf8f6c8367ff6ab45bb4964c7abe07d5, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.4
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: bubble3
+    clip: {fileID: 8300000, guid: 5fedcb1d8621a004ca6bb028e6b9e377, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.4
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
