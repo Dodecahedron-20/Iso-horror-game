@@ -37,6 +37,9 @@ public class Monster : MonoBehaviour
 
     RaycastHit hit;
 
+    [SerializeField]
+    private Animator anim;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -50,6 +53,8 @@ public class Monster : MonoBehaviour
         currentFOVAngle = fovAngle;
 
         nav.speed = walkSpeed;
+
+        anim.SetBool("run", false);
     }
 
     void Update()
@@ -107,6 +112,8 @@ public class Monster : MonoBehaviour
                     currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
 
                     Invoke("SetBoolFalse", 10f);
+
+                    anim.SetBool("run", true);
                 }
             }
             else
@@ -121,6 +128,8 @@ public class Monster : MonoBehaviour
         spotted = false;
         nav.speed = walkSpeed;
         currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+
+        anim.SetBool("run", false);
     }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
@@ -151,12 +160,15 @@ public class Monster : MonoBehaviour
         if (spotted == true)
         {
             nav.speed = runSpeed;
+            
+            anim.SetBool("run", true);
 
             Vector3 dirToPlayer = transform.position - player.transform.position;
 
             Vector3 newPos = transform.position - dirToPlayer;
 
             nav.SetDestination(newPos);
+
         }
     }
 
@@ -168,4 +180,10 @@ public class Monster : MonoBehaviour
             player.gameObject.GetComponent<Player>().health -= damage;
         }
     }
+
+    public void Footsteps()
+    {
+        FindObjectOfType<AudioManager>().Play("MonsterFootstep");
+    }
+
 }
