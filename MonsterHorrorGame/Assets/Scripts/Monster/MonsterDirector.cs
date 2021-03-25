@@ -15,8 +15,6 @@ public class MonsterDirector : MonoBehaviour
 
     void Start()
     {
-        timer = 20f;
-
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawnpoint");
 
         InvokeRepeating("CheckMonsterStatus", 3.0f, 5f);

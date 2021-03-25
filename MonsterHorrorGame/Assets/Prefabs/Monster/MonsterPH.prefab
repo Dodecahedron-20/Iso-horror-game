@@ -206,7 +206,7 @@ MonoBehaviour:
   fovSpeed: 1000
   dist: 0
   damage: 100
-  timer: 20
+  findDelay: 0.5
   visibleTargets: []
   targetMask:
     serializedVersion: 2

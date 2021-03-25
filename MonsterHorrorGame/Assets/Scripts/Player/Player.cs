@@ -63,16 +63,16 @@ public class Player : MonoBehaviour
             anim.SetBool("run", false);
             anim.SetBool("walk", false);
         }
-            
 
-        if(Input.GetKey(KeyCode.LeftShift))
+
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            if(currentStamina > 0)
+            if (currentStamina > 0)
             {
                 anim.SetBool("run", true);
                 isSprinting = true;
                 Sprint();
-                
+
             }
             else
             {
@@ -86,11 +86,11 @@ public class Player : MonoBehaviour
         {
             moveSpeed = walkSpeed;
             isSprinting = false;
-            //anim.SetBool("run", false);
-            
+            anim.SetBool("run", false);
+
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Debug.Log("ded");
             StartCoroutine(Death());

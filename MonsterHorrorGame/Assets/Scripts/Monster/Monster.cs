@@ -23,8 +23,6 @@ public class Monster : MonoBehaviour
 
     public float damage;
 
-    public float timer;
-
     public List<Transform> visibleTargets = new List<Transform>();
 
     public LayerMask targetMask;
@@ -47,45 +45,21 @@ public class Monster : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        StartCoroutine("FindTargetsWithDelay", .2f);
+        StartCoroutine("FindTargetsWithDelay", 0.5f);
 
         currentFOVAngle = fovAngle;
+
+        nav.speed = walkSpeed;
     }
 
     void Update()
     {
-        dist = Vector3.Distance(transform.position, player.transform.position);
-
-        Look();
-
-        nav.speed = walkSpeed;
-
-        //if(currentFOVAngle > 60 && spotted == false)
-        //{
-        //    currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
-        //}
-        //else
-        //{
-        //    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
-        //}
-    }
-
-    IEnumerator FOVChange()
-    {
-        if (currentFOVAngle > 60 && spotted == false)
-        {
-            currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
-        }
-        else          
-        {
-            yield return new WaitForSeconds(5f);
-            currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
-        }
+        dist = Vector3.Distance(transform.position, player.transform.position);  
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
     {
-        while (true)
+        while (spotted == false)
         {
             yield return new WaitForSeconds(delay);
             FindVisibleTargets();
@@ -103,6 +77,8 @@ public class Monster : MonoBehaviour
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
+            Transform playerTargetPoint = player.transform;
+            //Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToTarget) < currentFOVAngle / 2) 
             {
@@ -110,35 +86,37 @@ public class Monster : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    //StartCoroutine(Chase());
-                    StartCoroutine(FOVChange());
                     spotted = true;
                     visibleTargets.Add(target);
-                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+                    lastKnownPos = playerTargetPoint.position;
+                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
                     Chase();
                     Debug.Log("Spotted");                    
                 }
                 else
                 {
-                    Invoke("SetBoolFalse", 3f);
-                    //spotted = false;
-                    //nav.speed = walkSpeed;
+                    Vector3 dirToPlayer = transform.position - lastKnownPos;
+
+                    Vector3 newPos = transform.position - dirToPlayer;
+
+                    nav.SetDestination(newPos);
+
+                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+                    //Invoke("SetBoolFalse", 3f);
                 }
             }
-            else
-            {
-                Invoke("SetBoolFalse", 3f);
-                //spotted = false;
-                //nav.speed = walkSpeed;
-            }
+            //else
+            //{
+            //    Invoke("SetBoolFalse", 3f);
+            //}
         }
     }
 
-    void SetBoolFalse()
-    {
-        spotted = false;
-        nav.speed = walkSpeed;
-    }
+    //void SetBoolFalse()
+    //{
+    //    spotted = false;
+    //    nav.speed = walkSpeed;
+    //}
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
@@ -158,7 +136,7 @@ public class Monster : MonoBehaviour
         {
             if (Player.gameObject.tag == "Player")
             {
-                timer += Time.deltaTime;
+
             }
         }
     }
@@ -176,31 +154,6 @@ public class Monster : MonoBehaviour
             nav.SetDestination(newPos);
         }
     }
-
-    //IEnumerator Chase()
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-
-    //    nav.speed = runSpeed;
-
-    //    Vector3 dirToPlayer = transform.position - player.transform.position;
-
-    //    Vector3 newPos = transform.position - dirToPlayer;
-
-    //    nav.SetDestination(newPos);
-
-    //    yield return new WaitForSeconds(5f);
-    //if (spotted == true)
-    //{
-    //    nav.speed = runSpeed;
-
-    //    Vector3 dirToPlayer = transform.position - player.transform.position;
-
-    //    Vector3 newPos = transform.position - dirToPlayer;
-
-    //    nav.SetDestination(newPos);
-    //}
-    //}
 
     void OnTriggerEnter(Collider player)
     {
