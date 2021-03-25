@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
 
     Vector3 forward, right;
 
+    [SerializeField]
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,31 +47,46 @@ public class Player : MonoBehaviour
         currentStamina = maxStamina;
 
         //StartCoroutine(RegenStamina());
+        anim.SetBool("run", false);
+        anim.SetBool("walk", false);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.anyKey)
+        {
             Move();
+        }
+        else
+        {
+            anim.SetBool("run", false);
+            anim.SetBool("walk", false);
+        }
+            
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
             if(currentStamina > 0)
             {
+                anim.SetBool("run", true);
                 isSprinting = true;
                 Sprint();
+                
             }
             else
             {
                 moveSpeed = walkSpeed;
                 isSprinting = false;
+                anim.SetBool("run", false);
+                anim.SetBool("walk", true);
             }
         }
         else
         {
             moveSpeed = walkSpeed;
             isSprinting = false;
+            
         }
 
         if(health <= 0)
@@ -89,6 +107,8 @@ public class Player : MonoBehaviour
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+
+        anim.SetBool("walk", true);
     }
 
     private void Sprint()
