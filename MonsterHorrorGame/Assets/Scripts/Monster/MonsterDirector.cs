@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MonsterDirector : MonoBehaviour
 {
-    public Transform monster;
+    public Transform monsterPrefab;
+    public Transform monsterClone;
 
     [SerializeField] bool monsterActive;
-    [SerializeField] float timer;
+    public float timer;
     private int randomSpawn;
 
     [SerializeField]
@@ -26,7 +27,7 @@ public class MonsterDirector : MonoBehaviour
     {
         timer = Mathf.Clamp(timer -= Time.deltaTime, 0, 20);
 
-        if(monster.gameObject.activeInHierarchy == true)
+        if(monsterClone != null)
         {
             monsterActive = true;
         }
@@ -52,7 +53,7 @@ public class MonsterDirector : MonoBehaviour
         if (timer <= 0 && monsterActive == false)
         {
             //randomSpawn = Random.Range(0, spawnPoints.Length);
-            Instantiate(monster, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity);
+            monsterClone = Instantiate(monsterPrefab.gameObject, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity).transform;
             monsterActive = true;
             timer = 20f;
         }
@@ -74,11 +75,11 @@ public class MonsterDirector : MonoBehaviour
 
     void DespawnMonster()
     {
-        var monster = GetComponent<Monster>();
+        Monster monster = monsterClone.GetComponent<Monster>();
 
-        if (timer <= 0 && monster.spotted == false && monster.dist > 20)
+        if (timer <= 0 && monster.spotted != true && monster.dist > 10)
         {
-            Destroy(this.monster.gameObject);
+            Destroy(this.monsterClone.gameObject);
             monsterActive = false;
             if(monster != null)
             {

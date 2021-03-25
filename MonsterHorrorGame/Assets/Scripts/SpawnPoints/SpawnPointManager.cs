@@ -6,7 +6,7 @@ public class SpawnPointManager : MonoBehaviour
 {
     public Player player;
     public GameObject[] spawnPoints;
-    public float minDist = 5;
+    public float minDist;
 
     void Start()
     {

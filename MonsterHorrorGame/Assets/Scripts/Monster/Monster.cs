@@ -8,11 +8,8 @@ public class Monster : MonoBehaviour
 {
     public GameObject player;
 
-    public float timer = 20f;
-
     public bool spotted = false;
 
-    
     public float fovAngle;
     [Range(0, 360)]
     public float currentFOVAngle;
@@ -25,6 +22,8 @@ public class Monster : MonoBehaviour
     public float dist;
 
     public float damage;
+
+    public float timer;
 
     public List<Transform> visibleTargets = new List<Transform>();
 
@@ -56,13 +55,6 @@ public class Monster : MonoBehaviour
         dist = Vector3.Distance(transform.position, player.transform.position);
 
         Look();
-
-        timer -= Time.deltaTime;
-
-        if(timer <= 0 && spotted == false && dist > 20)
-        {
-            Destroy(gameObject);
-        }
 
         //if(currentFOVAngle > 60 && spotted == false)
         //{
@@ -114,12 +106,12 @@ public class Monster : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    StartCoroutine(Chase());
+                    //StartCoroutine(Chase());
                     StartCoroutine(FOVChange());
                     spotted = true;
                     visibleTargets.Add(target);
                     //currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
-                    //Chase();
+                    Chase();
                     Debug.Log("Spotted");                    
                 }
                 else
@@ -167,42 +159,44 @@ public class Monster : MonoBehaviour
         }
     }
 
-    //void Chase()
-    //{
-    //    if (spotted == true)
-    //    {
-    //        Vector3 dirToPlayer = transform.position - player.transform.position;
-
-    //        Vector3 newPos = transform.position - dirToPlayer;
-
-    //        nav.SetDestination(newPos);
-    //    }
-    //}
-
-    IEnumerator Chase()
+    void Chase()
     {
-        yield return new WaitForSeconds(0.2f);
+        if (spotted == true)
+        {
+            nav.speed = runSpeed;
 
-        nav.speed = runSpeed;
+            Vector3 dirToPlayer = transform.position - player.transform.position;
 
-        Vector3 dirToPlayer = transform.position - player.transform.position;
+            Vector3 newPos = transform.position - dirToPlayer;
 
-        Vector3 newPos = transform.position - dirToPlayer;
-
-        nav.SetDestination(newPos);
-
-        yield return new WaitForSeconds(5f);
-        //if (spotted == true)
-        //{
-        //    nav.speed = runSpeed;
-
-        //    Vector3 dirToPlayer = transform.position - player.transform.position;
-
-        //    Vector3 newPos = transform.position - dirToPlayer;
-
-        //    nav.SetDestination(newPos);
-        //}
+            nav.SetDestination(newPos);
+        }
     }
+
+    //IEnumerator Chase()
+    //{
+    //    yield return new WaitForSeconds(0.2f);
+
+    //    nav.speed = runSpeed;
+
+    //    Vector3 dirToPlayer = transform.position - player.transform.position;
+
+    //    Vector3 newPos = transform.position - dirToPlayer;
+
+    //    nav.SetDestination(newPos);
+
+    //    yield return new WaitForSeconds(5f);
+    //if (spotted == true)
+    //{
+    //    nav.speed = runSpeed;
+
+    //    Vector3 dirToPlayer = transform.position - player.transform.position;
+
+    //    Vector3 newPos = transform.position - dirToPlayer;
+
+    //    nav.SetDestination(newPos);
+    //}
+    //}
 
     void OnTriggerEnter(Collider player)
     {
