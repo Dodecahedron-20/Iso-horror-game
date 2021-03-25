@@ -10,15 +10,30 @@ public class PauseMenu : MonoBehaviour
 //pause menu featuring the "inventory" "Menu"
 
 
-  //Pause Menu:
-  [SerializeField]
-  private GameObject pauseMenu = null;
-  private bool paused = false;
+    //Pause Menu:
+    [SerializeField]
+    private GameObject pauseMenu = null;
+    private bool paused = false;
 
-  //inventory Menu:
-  [SerializeField]
-  private GameObject inventory;
-  private bool checkinven = false;
+    //inventory Menu:
+    [SerializeField]
+    private GameObject inventory;
+    private bool checkinven = false;
+
+    //end game things:
+    private bool lost = false;
+
+    [SerializeField]
+    private GameObject black;
+    [SerializeField]
+    private Animator anim;
+
+    [SerializeField]
+    private GameObject winPage = null;
+    [SerializeField]
+    private GameObject losePage = null;
+    [SerializeField]
+    private GameObject youDiedText = null;
 
 
     // Start is called before the first frame update
@@ -57,6 +72,11 @@ public class PauseMenu : MonoBehaviour
           InventoryOFF();
         }
       }
+      //testing endings
+      if (Input.GetKeyDown(KeyCode.G))
+        {
+            LoseGame();
+        }
 
     }
 
@@ -117,4 +137,38 @@ public class PauseMenu : MonoBehaviour
       inventory.SetActive(false);
     }
 
+
+    private void LoseGame()
+    {
+        lost = true;
+        //anim.SetBool("fadeIn", true);
+        black.SetActive(true);
+        FadeInEnd();
+
+
+    }
+
+
+    public void FadeInEnd()
+    {
+        StartCoroutine(YouDied());
+    }
+
+    private void WinGame()
+    {
+
+    }
+
+    IEnumerator YouDied()
+    {
+        youDiedText.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        youDiedText.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+        losePage.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+
+    }
 }

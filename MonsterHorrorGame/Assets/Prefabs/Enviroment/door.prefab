@@ -424,7 +424,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c94ad9415c940914381ff10b9deddd80, type: 2}
-  - {fileID: 2100000, guid: 9e52fc6fdd8488f4d9a17e56f1986f05, type: 2}
+  - {fileID: 2100000, guid: 1f743426848b9274cb37e744316bf7bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 236400544}
-  unlocked: 0
+  unlocked: 1
   openAudio: {fileID: 6271645671844473616}
   beepAudio: {fileID: 0}
   brrrrAudio: {fileID: 3003455701627234977}
@@ -594,7 +594,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c94ad9415c940914381ff10b9deddd80, type: 2}
-  - {fileID: 2100000, guid: 9e52fc6fdd8488f4d9a17e56f1986f05, type: 2}
+  - {fileID: 2100000, guid: 1f743426848b9274cb37e744316bf7bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
