@@ -42,7 +42,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
-        StartCoroutine(GrowlsTest());
+        FindObjectOfType<AudioManager>().Play("wind-whistle");
+        //StartCoroutine(GrowlsTest());
     }
 
     // Update is called once per frame
