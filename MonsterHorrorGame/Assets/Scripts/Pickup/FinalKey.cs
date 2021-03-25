@@ -17,6 +17,9 @@ public class FinalKey : MonoBehaviour
     [SerializeField]
     private GameObject keyIcon = null;
 
+    [SerializeField]
+    private DoorOpen door;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class FinalKey : MonoBehaviour
 
     private void CollectKey()
     {
+        door.UnLock();
         keyIcon.SetActive(true);
         GameAnalytics.NewDesignEvent("key");
         Destroy(key);
