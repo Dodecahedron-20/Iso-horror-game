@@ -31,6 +31,7 @@ public class KeyCard : MonoBehaviour
     {
         UnlockDoors();
         CollectCard();
+
     }
 
     private void CollectCard()

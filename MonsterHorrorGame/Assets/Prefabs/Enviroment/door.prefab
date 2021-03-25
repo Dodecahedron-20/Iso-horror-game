@@ -424,7 +424,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c94ad9415c940914381ff10b9deddd80, type: 2}
-  - {fileID: 2100000, guid: 1f743426848b9274cb37e744316bf7bb, type: 2}
+  - {fileID: 2100000, guid: 9e52fc6fdd8488f4d9a17e56f1986f05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -456,8 +456,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4998452239950021470}
   - component: {fileID: 2594932110003520137}
-  - component: {fileID: 2594932110003520135}
   - component: {fileID: 2594932110003520136}
+  - component: {fileID: 236400545}
+  - component: {fileID: 236400544}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -474,7 +475,7 @@ Transform:
   m_GameObject: {fileID: 5626616034204735972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12, y: 1, z: 8}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.009999997, y: 0.01, z: 0.009999997}
   m_Children:
   - {fileID: 8787941348304000622}
   - {fileID: 4368750712732192717}
@@ -498,7 +499,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 237.3529, y: 74.84762, z: 254.78629}
   m_Center: {x: -797.91693, y: 47.619896, z: 5.451286}
---- !u!95 &2594932110003520135
+--- !u!114 &2594932110003520136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626616034204735972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3586503e29b4747a03bf0167004265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 236400544}
+  unlocked: 0
+  openAudio: {fileID: 6271645671844473616}
+  beepAudio: {fileID: 0}
+  brrrrAudio: {fileID: 3003455701627234977}
+--- !u!65 &236400545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626616034204735972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 237.3529, y: 74.84762, z: 254.78629}
+  m_Center: {x: -797.91693, y: 47.619896, z: 5.451286}
+--- !u!95 &236400544
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -517,24 +548,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2594932110003520136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5626616034204735972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3586503e29b4747a03bf0167004265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 2594932110003520135}
-  unlocked: 1
-  openAudio: {fileID: 6271645671844473616}
-  closeAudio: {fileID: 0}
-  beepAudio: {fileID: 0}
-  brrrrAudio: {fileID: 3003455701627234977}
 --- !u!1 &7343650221886735956
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +608,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c94ad9415c940914381ff10b9deddd80, type: 2}
-  - {fileID: 2100000, guid: 1f743426848b9274cb37e744316bf7bb, type: 2}
+  - {fileID: 2100000, guid: 9e52fc6fdd8488f4d9a17e56f1986f05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
