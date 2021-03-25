@@ -14,6 +14,9 @@ public class DanceDance : MonoBehaviour
   [SerializeField]
   private Animator monsterAnim;
 
+  [SerializeField]
+  private GameObject black;
+
 
 
     // Start is called before the first frame update
