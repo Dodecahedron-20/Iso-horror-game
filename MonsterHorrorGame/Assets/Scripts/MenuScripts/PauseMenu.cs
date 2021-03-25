@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
+        StartCoroutine(GrowlsTest());
     }
 
     // Update is called once per frame
@@ -88,6 +89,7 @@ public class PauseMenu : MonoBehaviour
       {
           InventoryOFF();
       }
+        FindObjectOfType<AudioManager>().Play("UI-Click");
         paused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
@@ -97,6 +99,7 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseMenuOFF()
     {
+        FindObjectOfType<AudioManager>().Play("UI-Click");
         paused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
@@ -106,16 +109,19 @@ public class PauseMenu : MonoBehaviour
     //pause Menu Buttons
     public void Resume()
     {
+      FindObjectOfType<AudioManager>().Play("UI-Click");
         PauseMenuOFF();
     }
 
     public void Restart()
     {
+      FindObjectOfType<AudioManager>().Play("UI-Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Resign()
     {
+      FindObjectOfType<AudioManager>().Play("UI-Click");
         SceneManager.LoadScene(0);
         //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game");
     }
@@ -127,12 +133,14 @@ public class PauseMenu : MonoBehaviour
       {
         PauseMenuOFF();
       }
+      FindObjectOfType<AudioManager>().Play("UI-Click");
       checkinven = true;
       inventory.SetActive(true);
     }
 
     private void InventoryOFF()
     {
+      FindObjectOfType<AudioManager>().Play("UI-Click");
       checkinven = false;
       inventory.SetActive(false);
     }
@@ -171,4 +179,21 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
     }
+
+    public void DanceOff()
+    {
+      FindObjectOfType<AudioManager>().Play("UI-Click");
+      GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "DanceDance");
+      SceneManager.LoadScene(2);
+    }
+
+IEnumerator GrowlsTest()
+{
+  yield return new WaitForSeconds(3f);
+  FindObjectOfType<AudioManager>().Play("monsterGrowl");
+
+  StartCoroutine(GrowlsTest());
+}
+
+
 }

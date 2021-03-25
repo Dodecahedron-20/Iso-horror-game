@@ -15,16 +15,22 @@ public class MainMenu : MonoBehaviour
   [SerializeField]
   private GameObject QuitPrompt = null;
     //Audio interactions
-    [SerializeField]
-    private AudioSource clickAudio;
+  [SerializeField]
+  private AudioSource clickAudio;
+
+void Start()
+{
+  GameAnalytics.Initialize();
+  GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
+}
+
 
   //Start the Game things:
   public void StartGame()
   {
       clickAudio.Play();
       SceneManager.LoadScene(1);
-      GameAnalytics.Initialize();
-      GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
+
    }
 
 

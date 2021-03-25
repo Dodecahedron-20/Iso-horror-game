@@ -1406,7 +1406,11 @@ PrefabInstance:
     - target: {fileID: 877229202778297349, guid: 63d02acd401874969b2232674b3c93a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1893791419}
+      objectReference: {fileID: 1893791420}
+    - target: {fileID: 877229202778297349, guid: 63d02acd401874969b2232674b3c93a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1833325079762885864, guid: 63d02acd401874969b2232674b3c93a4, type: 3}
       propertyPath: m_Text
       value: Start
@@ -2704,7 +2708,7 @@ GameObject:
   - component: {fileID: 1358854891}
   - component: {fileID: 1358854890}
   m_Layer: 0
-  m_Name: hover-Audio Source
+  m_Name: click-Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2730,7 +2734,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.1500301
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

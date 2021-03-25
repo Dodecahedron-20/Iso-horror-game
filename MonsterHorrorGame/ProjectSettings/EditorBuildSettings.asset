@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 62f20aa61d20543a8b1084e875fbdefd
+  - enabled: 1
+    path: Assets/Scenes/TesintgGame 1.unity
+    guid: affde467973352245a2d3014e0d7bf15
+  - enabled: 1
+    path: Assets/Scenes/DancingMonster.unity
+    guid: cff3116c2a467e84a8cd7efd25815387
   m_configObjects: {}

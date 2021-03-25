@@ -40,7 +40,7 @@ public class DoorOpen : MonoBehaviour
         }
         else
         {
-          brrrrAudio.Play();
+          FindObjectOfType<AudioManager>().Play("Door-Brrr");
         }
 
 
@@ -56,12 +56,12 @@ public class DoorOpen : MonoBehaviour
 //audio goes here:
     public void OpenAudio()
     {
-      if (beep == true)
-      {
-        beepAudio.Play();
-      }
+      //if (beep == true)
+      //{
+        //beepAudio.Play();
+      //}
 
-      openAudio.Play();
+      FindObjectOfType<AudioManager>().Play("Door-Whoosh");
 
     }
 
