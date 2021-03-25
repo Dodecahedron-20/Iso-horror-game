@@ -51,7 +51,7 @@ public class MonsterDirector : MonoBehaviour
         {
             monsterClone = Instantiate(monsterPrefab.gameObject, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity).transform;
             monsterActive = true;
-            timer = 20f;
+            timer = 50f;
         }
     }
 
@@ -79,7 +79,7 @@ public class MonsterDirector : MonoBehaviour
             monsterActive = false;
             if(monster != null)
             {
-                timer = 20f;
+                timer = 50f;
             }          
         }
     }

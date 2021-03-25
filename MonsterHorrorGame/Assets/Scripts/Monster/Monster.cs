@@ -59,7 +59,7 @@ public class Monster : MonoBehaviour
 
     IEnumerator FindTargetsWithDelay(float delay)
     {
-        while (spotted == false)
+        while (true)
         {
             yield return new WaitForSeconds(delay);
             FindVisibleTargets();
@@ -80,6 +80,7 @@ public class Monster : MonoBehaviour
             Transform playerTargetPoint = player.transform;
             //Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
+            lastKnownPos = playerTargetPoint.position;
             if (Vector3.Angle(transform.forward, dirToTarget) < currentFOVAngle / 2) 
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
@@ -89,34 +90,38 @@ public class Monster : MonoBehaviour
                     spotted = true;
                     visibleTargets.Add(target);
                     lastKnownPos = playerTargetPoint.position;
-                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
                     Chase();
                     Debug.Log("Spotted");                    
                 }
                 else
                 {
+                    nav.speed = runSpeed;
+
                     Vector3 dirToPlayer = transform.position - lastKnownPos;
 
                     Vector3 newPos = transform.position - dirToPlayer;
 
                     nav.SetDestination(newPos);
 
-                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
-                    //Invoke("SetBoolFalse", 3f);
+                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+
+                    Invoke("SetBoolFalse", 10f);
                 }
             }
-            //else
-            //{
-            //    Invoke("SetBoolFalse", 3f);
-            //}
+            else
+            {
+                Invoke("SetBoolFalse", 10f);
+            }
         }
     }
 
-    //void SetBoolFalse()
-    //{
-    //    spotted = false;
-    //    nav.speed = walkSpeed;
-    //}
+    void SetBoolFalse()
+    {
+        spotted = false;
+        nav.speed = walkSpeed;
+        currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+    }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
