@@ -23,6 +23,7 @@ public class DanceDance : MonoBehaviour
     void Start()
     {
       monsterAnim.SetBool("dance", true);
+      StartCoroutine(DanceDanceBaby());
 
     }
 
