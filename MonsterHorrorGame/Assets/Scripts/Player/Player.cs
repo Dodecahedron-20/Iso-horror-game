@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         {
             moveSpeed = walkSpeed;
             isSprinting = false;
+            //anim.SetBool("run", false);
             
         }
 
@@ -109,6 +110,7 @@ public class Player : MonoBehaviour
         transform.position += upMovement;
 
         anim.SetBool("walk", true);
+        anim.SetBool("run", false);
     }
 
     private void Sprint()
