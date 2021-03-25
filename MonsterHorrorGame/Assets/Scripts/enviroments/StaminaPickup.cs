@@ -16,7 +16,7 @@ public class StaminaPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        plr = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -28,10 +28,12 @@ public class StaminaPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      //plr.RegenStamina();
-      //check what method this needs to call to add back stamina.
-      //also, does it give back ALL stamina, or jsut some?
-      Destroy(staminaBox);
+        //plr.RegenStamina();
+        //check what method this needs to call to add back stamina.
+        //also, does it give back ALL stamina, or jsut some?
+        plr.currentStamina += 100;
+
+        Destroy(staminaBox);
     }
 
 }

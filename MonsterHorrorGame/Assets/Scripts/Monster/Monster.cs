@@ -54,12 +54,15 @@ public class Monster : MonoBehaviour
 
         nav.speed = walkSpeed;
 
-        anim.SetBool("run", false);
+        if(anim != null)
+        {
+            anim.SetBool("run", false);
+        }
     }
 
     void Update()
     {
-        dist = Vector3.Distance(transform.position, player.transform.position);  
+        dist = Vector3.Distance(transform.position, player.transform.position);
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -83,8 +86,8 @@ public class Monster : MonoBehaviour
         {
             Transform target = targetsInViewRadius[i].transform;
             Transform playerTargetPoint = player.transform;
-            //Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
+            //Vector3 dirToTarget = (target.position - transform.position).normalized;
             lastKnownPos = playerTargetPoint.position;
             if (Vector3.Angle(transform.forward, dirToTarget) < currentFOVAngle / 2) 
             {
@@ -113,7 +116,10 @@ public class Monster : MonoBehaviour
 
                     Invoke("SetBoolFalse", 10f);
 
-                    anim.SetBool("run", true);
+                    if (anim != null)
+                    {
+                        anim.SetBool("run", true);
+                    }
                 }
             }
             else
@@ -128,8 +134,10 @@ public class Monster : MonoBehaviour
         spotted = false;
         nav.speed = walkSpeed;
         currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
-
-        anim.SetBool("run", false);
+        if (anim != null)
+        {
+            anim.SetBool("run", false);
+        }
     }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
@@ -160,15 +168,17 @@ public class Monster : MonoBehaviour
         if (spotted == true)
         {
             nav.speed = runSpeed;
-            
-            anim.SetBool("run", true);
+
+            if (anim != null)
+            {
+                anim.SetBool("run", true);
+            }
 
             Vector3 dirToPlayer = transform.position - player.transform.position;
 
             Vector3 newPos = transform.position - dirToPlayer;
 
             nav.SetDestination(newPos);
-
         }
     }
 

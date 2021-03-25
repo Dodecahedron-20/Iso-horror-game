@@ -14,8 +14,9 @@ public class Player : MonoBehaviour
     float walkSpeed;
     [SerializeField]
     float maxStamina;
-    [SerializeField]
-    float currentStamina;
+    
+    public float currentStamina;
+
     [SerializeField]
     int staminaToUse;
 
@@ -46,7 +47,6 @@ public class Player : MonoBehaviour
 
         currentStamina = maxStamina;
 
-        //StartCoroutine(RegenStamina());
         anim.SetBool("run", false);
         anim.SetBool("walk", false);
     }
@@ -118,20 +118,9 @@ public class Player : MonoBehaviour
         if(isSprinting == true)
         {
             moveSpeed = sprintSpeed;
-            //currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
+            currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
         }        
     }
-
-    //IEnumerator RegenStamina()
-    //{
-    //    yield return new WaitForSeconds(2);
-
-    //    while (currentStamina <= 0)
-    //    {
-    //        currentStamina += maxStamina / 100;
-    //        yield return regenTick;
-    //    }  
-    //}
 
     IEnumerator Death()
     {
