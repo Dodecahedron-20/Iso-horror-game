@@ -211,8 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ecd73b38f0da24ab408243e258188e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
 --- !u!1 &45785795
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +393,7 @@ MonoBehaviour:
   health: 100
   gameOverText: {fileID: 2022583250}
   waypoint: []
+  anim: {fileID: 0}
 --- !u!54 &184723433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -587,7 +586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &234444015
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2212,8 +2211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ecd73b38f0da24ab408243e258188e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
 --- !u!1 &826075375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,8 +3013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ecd73b38f0da24ab408243e258188e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
 --- !u!1 &1185837654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,8 +3151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ecd73b38f0da24ab408243e258188e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
 --- !u!1 &1230773107
 GameObject:
   m_ObjectHideFlags: 0
