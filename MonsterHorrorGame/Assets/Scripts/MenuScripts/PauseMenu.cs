@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
-        FindObjectOfType<AudioManager>().Play("wind-whistle");
+        
         //StartCoroutine(GrowlsTest());
     }
 
@@ -165,6 +165,9 @@ public class PauseMenu : MonoBehaviour
 
     private void WinGame()
     {
+      winPage.SetActive(true);
+      Cursor.lockState = CursorLockMode.None;
+
 
     }
 
