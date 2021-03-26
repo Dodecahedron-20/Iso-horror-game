@@ -478,8 +478,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8888438, y: 0.5100751, z: 2.3197446}
-  m_Center: {x: -0.18405783, y: 0.2089951, z: 0.6598723}
+  m_Size: {x: 2.467172, y: 0.8564148, z: 2.3656425}
+  m_Center: {x: 0.026778102, y: 0.38216496, z: 1.0863516}
 --- !u!95 &9164226506923556228
 Animator:
   serializedVersion: 3
@@ -513,9 +513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 9164226506923556228}
   unlocked: 1
-  openAudio: {fileID: 0}
-  beepAudio: {fileID: 0}
-  brrrrAudio: {fileID: 0}
 --- !u!1 &9188703003681632120
 GameObject:
   m_ObjectHideFlags: 0
