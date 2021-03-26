@@ -10,15 +10,16 @@ public class FinalKey : MonoBehaviour
     [SerializeField]
     private GameObject key = null;
 
-    //the final door
-    // [SerializeField]
-    //private (something) endDoor;
-
     [SerializeField]
     private GameObject keyIcon = null;
 
     [SerializeField]
+    private GameObject interactIcon = null;
+
+    [SerializeField]
     private DoorOpen door;
+
+    private bool item = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +30,20 @@ public class FinalKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E) && item == true)
+        {
+            CollectKey();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        CollectKey();
+        if (other.tag == "Player")
+        {
+            item = true;
+            interactIcon.SetActive(true);
+            StartCoroutine(Timer());
+        }
     }
 
     private void CollectKey()
@@ -43,5 +52,12 @@ public class FinalKey : MonoBehaviour
         keyIcon.SetActive(true);
         GameAnalytics.NewDesignEvent("key");
         Destroy(key);
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(3f);
+        interactIcon.SetActive(false);
+        item = false;
     }
 }

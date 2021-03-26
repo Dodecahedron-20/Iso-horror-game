@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
 
       }
 
-      if (Input.GetKeyDown(KeyCode.E))
+      if (Input.GetKeyDown(KeyCode.Tab))
       {
         if (checkinven == false)
         {

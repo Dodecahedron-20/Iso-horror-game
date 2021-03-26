@@ -17,9 +17,15 @@ public class KeyCard : MonoBehaviour
     [SerializeField]
     private GameObject cardIcon = null;
 
+    [SerializeField]
+    private GameObject interactIcon = null;
+
     //the KeyCard Object
     [SerializeField]
     private GameObject keyCard = null;
+
+    private bool item = false;
+
 
 
     private void Start()
@@ -27,11 +33,23 @@ public class KeyCard : MonoBehaviour
         cardIcon.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && item == true)
+        {
+            UnlockDoors();
+            CollectCard();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        UnlockDoors();
-        CollectCard();
-
+        if (other.tag == "Player")
+        {
+            item = true;
+            interactIcon.SetActive(true);
+            StartCoroutine(Timer());
+        } 
     }
 
     private void CollectCard()
@@ -49,5 +67,11 @@ public class KeyCard : MonoBehaviour
     }
 
 
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(10f);
+        interactIcon.SetActive(false);
+        item = false;
+    }
 
 }

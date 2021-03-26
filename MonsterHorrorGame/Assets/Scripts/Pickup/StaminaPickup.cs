@@ -6,11 +6,26 @@ public class StaminaPickup : MonoBehaviour
 {
     public Player player;
 
-    private void OnTriggerEnter(Collider other)
+    private bool item = false;
+
+    [SerializeField]
+    private GameObject interactIcon = null;
+
+    private void Update()
     {
-        if(other.tag == "Player")
+        if (Input.GetKeyDown(KeyCode.E) && item == true)
         {
             PickUp();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            item = true;
+            interactIcon.SetActive(true);
+            StartCoroutine(Timer());
         }
     }
 
@@ -19,5 +34,13 @@ public class StaminaPickup : MonoBehaviour
         player.currentStamina += 100f;
 
         Destroy(gameObject);
+    }
+
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(10f);
+        interactIcon.SetActive(false);
+        item = false;
     }
 }
