@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    float moveSpeed;
+    public float moveSpeed;
     [SerializeField]
     float sprintSpeed;
     [SerializeField]
@@ -19,9 +16,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     int staminaToUse;
-
-    public float health;
-    public TextMeshProUGUI gameOverText;
 
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
@@ -91,12 +85,6 @@ public class Player : MonoBehaviour
             anim.SetBool("run", false);
 
         }
-
-        if (health <= 0)
-        {
-            Debug.Log("ded");
-            StartCoroutine(Death());
-        }
     }
 
     private void Move()
@@ -123,15 +111,6 @@ public class Player : MonoBehaviour
             currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
         }        
     }
-
-    IEnumerator Death()
-    {
-        yield return new WaitForSeconds(1f);
-        gameOverText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("GameScene");
-    }
-
 
     public void PlayerSteps()
     {

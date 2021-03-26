@@ -8,6 +8,9 @@ public class KillPlayer : MonoBehaviour
     public Monster monster;
     public float damage;
 
+    [SerializeField]
+    PauseMenu pm;
+
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player")
@@ -24,8 +27,12 @@ public class KillPlayer : MonoBehaviour
         monster = GetComponent<Monster>();
         player.moveSpeed = 0f;
         monster.nav.speed = 0f;
+        yield return new WaitForSeconds(0.5f);
+        //animation for player death
+        //animation for monster attack
+        yield return new WaitForSeconds(0.5f);
+        pm.FadeInEnd();
 
-        player.gameObject.GetComponent<Player>().health -= damage;
     }
 
 }

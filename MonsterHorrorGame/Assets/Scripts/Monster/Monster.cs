@@ -34,7 +34,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private Vector3 lastKnownPos;
     [SerializeField] Color sightColour = new Color(207, 169, 255, 255);
 
-    private NavMeshAgent nav;
+    public NavMeshAgent nav;
 
     Rigidbody rb;
 
@@ -174,15 +174,6 @@ public class Monster : MonoBehaviour
             Vector3 newPos = transform.position - dirToPlayer;
 
             nav.SetDestination(newPos);
-        }
-    }
-
-    void OnTriggerEnter(Collider player)
-    {
-        if(player.gameObject.tag == "Player")
-        {
-            Debug.Log("pow");
-            player.gameObject.GetComponent<Player>().health -= damage;
         }
     }
 
