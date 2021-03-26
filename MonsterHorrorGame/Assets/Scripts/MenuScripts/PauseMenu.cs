@@ -35,6 +35,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject youDiedText = null;
 
+    [SerializeField]
+    private GameObject falldeathText = null;
+    [SerializeField]
+    private GameObject fallUI = null;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +81,7 @@ public class PauseMenu : MonoBehaviour
       //testing endings
       if (Input.GetKeyDown(KeyCode.G))
         {
-            LoseGame();
+            Fall();
         }
 
     }
@@ -147,42 +151,67 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    private void LoseGame()
+
+    //wining the game
+    public void WinGame()
     {
-        lost = true;
-        //anim.SetBool("fadeIn", true);
         black.SetActive(true);
-        FadeInEnd();
-
-
+        winPage.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 
 
+  //  private void LoseGame()
+   // {
+      //  lost = true;
+        //anim.SetBool("fadeIn", true);
+       // black.SetActive(true);
+       // FadeInEnd();
+
+
+    //}
+    //death by monster
     public void FadeInEnd()
     {
         StartCoroutine(YouDied());
-    }
-
-    private void WinGame()
-    {
-      winPage.SetActive(true);
-      Cursor.lockState = CursorLockMode.None;
-
-
+        
     }
 
     IEnumerator YouDied()
     {
         youDiedText.SetActive(true);
-
+        black.SetActive(true);
         yield return new WaitForSeconds(2f);
         youDiedText.SetActive(false);
 
         yield return new WaitForSeconds(0.5f);
         losePage.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
 
     }
+
+    //death by falling out of the maze (somehow)
+
+    public void Fall()
+    {
+        StartCoroutine(DeathByFalling());
+    }
+
+    IEnumerator DeathByFalling()
+    {
+        falldeathText.SetActive(true);
+        black.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        falldeathText.SetActive(false);
+        
+        yield return new WaitForSeconds(0.5f);
+        fallUI.SetActive(true);     
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+    }
+
 
     public void DanceOff()
     {
