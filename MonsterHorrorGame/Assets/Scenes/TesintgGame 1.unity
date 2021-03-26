@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.2
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.6
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.06666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -21784,6 +21784,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1502983033546824324, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2274453839934324798, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.75
@@ -21867,7 +21871,8 @@ MonoBehaviour:
   monsterPrefab: {fileID: 6017529007893335846, guid: 6d22117dc77064a4b95575aefa12992f, type: 3}
   monsterClone: {fileID: 0}
   monsterActive: 0
-  timer: 3
+  setTimer: 50
+  currentTimer: 0
   spawnPoints: []
 --- !u!4 &1360365767
 Transform:

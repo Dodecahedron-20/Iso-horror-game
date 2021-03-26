@@ -51,7 +51,7 @@ public class Monster : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        StartCoroutine("FindTargetsWithDelay", 0.5f);
+        StartCoroutine("FindTargetsWithDelay", 0.2f);
 
         currentFOVAngle = fovAngle;
 
@@ -77,11 +77,13 @@ public class Monster : MonoBehaviour
 
             nav.SetDestination(newPos);
         }
-
-        if (spotted == false && remember == false)
+        else
         {
-            nav.speed = walkSpeed;
-        }
+            if (spotted == false && remember == false)
+            {
+                nav.speed = walkSpeed;
+            }
+        }      
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -103,6 +105,7 @@ public class Monster : MonoBehaviour
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
+            remember = false;
             Transform target = targetsInViewRadius[i].transform;
             Transform playerTargetPoint = player.transform;
             Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
@@ -111,18 +114,17 @@ public class Monster : MonoBehaviour
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
-                {
-                    remember = false;
+                {               
                     spotted = true;
                     visibleTargets.Add(target);
                     lastKnownPos = playerTargetPoint.position;
-                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 120f);
                     Chase();
                     Debug.Log("Spotted");                    
                 }
                 else
-                {                 
-                    //Invoke("SetBoolFalse", 3f);
+                {
+                    Invoke("SetBoolFalse", 3f);
 
                     if (anim != null)
                     {
@@ -142,7 +144,7 @@ public class Monster : MonoBehaviour
         spotted = false;
         remember = true;
         nav.speed = walkSpeed;
-        currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
+        currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 120f);
         if (anim != null)
         {
             anim.SetBool("run", false);

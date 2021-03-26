@@ -8,7 +8,9 @@ public class MonsterDirector : MonoBehaviour
     public Transform monsterClone;
 
     [SerializeField] bool monsterActive;
-    public float timer;
+    public float setTimer;
+    [SerializeField]
+    float currentTimer;
 
     [SerializeField]
     public GameObject[] spawnPoints;
@@ -24,7 +26,7 @@ public class MonsterDirector : MonoBehaviour
 
     void Update()
     {
-        timer = Mathf.Clamp(timer -= Time.deltaTime, 0, 50);
+        currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
 
         if(monsterClone != null)
         {
@@ -49,11 +51,11 @@ public class MonsterDirector : MonoBehaviour
     {
         var player = GetComponent<Player>();
 
-        if (timer <= 0 && monsterActive == false)
+        if (currentTimer <= 0 && monsterActive == false)
         {
             monsterClone = Instantiate(monsterPrefab.gameObject, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity).transform;
             monsterActive = true;
-            timer = 50f;
+            currentTimer = setTimer;
         }
     }
 
@@ -75,13 +77,13 @@ public class MonsterDirector : MonoBehaviour
     {
         Monster monster = monsterClone.GetComponent<Monster>();
 
-        if (timer <= 0 && monster.spotted != true && monster.dist > 10)
+        if (currentTimer <= 0 && monster.spotted != true && monster.dist > 10)
         {
             Destroy(this.monsterClone.gameObject);
             monsterActive = false;
             if(monster != null)
             {
-                timer = 50f;
+                currentTimer = setTimer;
             }          
         }
     }
