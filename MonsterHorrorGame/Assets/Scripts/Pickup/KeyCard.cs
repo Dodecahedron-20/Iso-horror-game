@@ -55,6 +55,8 @@ public class KeyCard : MonoBehaviour
     private void CollectCard()
     {
         cardIcon.SetActive(true);
+        interactIcon.SetActive(false);
+        item = false;
         Destroy(keyCard);
     }
 

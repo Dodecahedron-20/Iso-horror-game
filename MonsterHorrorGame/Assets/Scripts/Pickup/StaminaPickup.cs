@@ -32,6 +32,8 @@ public class StaminaPickup : MonoBehaviour
     void PickUp()
     {
         player.currentStamina += 100f;
+        interactIcon.SetActive(false);
+        item = false;
 
         Destroy(gameObject);
     }

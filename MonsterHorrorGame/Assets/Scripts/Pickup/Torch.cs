@@ -55,6 +55,8 @@ public class Torch : MonoBehaviour
     {
         torchIcon.SetActive(true);
         playerLight.SetActive(true);
+        interactIcon.SetActive(false);
+        item = false;
         GameAnalytics.NewDesignEvent("torch");
         Destroy(torch);
     }

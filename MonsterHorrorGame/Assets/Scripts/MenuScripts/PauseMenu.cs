@@ -191,13 +191,13 @@ public class PauseMenu : MonoBehaviour
       SceneManager.LoadScene(2);
     }
 
-IEnumerator GrowlsTest()
-{
-  yield return new WaitForSeconds(3f);
-  FindObjectOfType<AudioManager>().Play("monsterGrowl");
+    IEnumerator GrowlsTest()
+    {
+        yield return new WaitForSeconds(3f);
+       FindObjectOfType<AudioManager>().Play("monsterGrowl");
 
-  StartCoroutine(GrowlsTest());
-}
+        StartCoroutine(GrowlsTest());
+    }
 
 
 }
