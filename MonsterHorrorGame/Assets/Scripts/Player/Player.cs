@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    private bool goo = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -130,9 +132,18 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+
     public void PlayerSteps()
     {
-        FindObjectOfType<AudioManager>().Play("playerFootsteps");
+        if (goo == false)
+        {
+            FindObjectOfType<AudioManager>().Play("playerFootsteps");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("goosteps");
+        }
+
     }
 
 }

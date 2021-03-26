@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998452239950021470, guid: 0d6fc62bb8733b041848e4fa98bbb638, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.678238
+      value: -16.48
       objectReference: {fileID: 0}
     - target: {fileID: 4998452239950021470, guid: 0d6fc62bb8733b041848e4fa98bbb638, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6925,7 +6925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998452239950021470, guid: 0d6fc62bb8733b041848e4fa98bbb638, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.678238
+      value: -16.34
       objectReference: {fileID: 0}
     - target: {fileID: 4998452239950021470, guid: 0d6fc62bb8733b041848e4fa98bbb638, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32752,10 +32752,6 @@ PrefabInstance:
       propertyPath: unlocked
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5561109942210812998, guid: ea8335a2bf6f77f45af4f988e6b98e62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e2f33a2711041e94a8bf835f08c286df, type: 2}
     - target: {fileID: 8353252232248459479, guid: ea8335a2bf6f77f45af4f988e6b98e62, type: 3}
       propertyPath: m_Name
       value: externalDoor
