@@ -37896,16 +37896,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.16666667
-    functionName: 
+    functionName: Walk
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 7145489249652539735, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.7
-    functionName: 
+    functionName: Walk
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 7145489249652539735, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

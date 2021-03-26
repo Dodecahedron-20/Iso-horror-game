@@ -17,6 +17,9 @@ public class GameStart : MonoBehaviour
   [SerializeField]
   private Animator anim;
 
+    [SerializeField]
+    private MiscAudio msc;
+
 
 
     // Start is called before the first frame update
@@ -57,7 +60,7 @@ public class GameStart : MonoBehaviour
 
       yield return new WaitForSeconds(1);
       anim.SetBool("fadeOut", true);
-
+        msc.StartWind();
 
     }
 

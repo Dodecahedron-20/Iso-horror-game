@@ -15,7 +15,10 @@ public class footsteps : MonoBehaviour
     {
         
     }
-
+    public void Walk()
+    {
+        FindObjectOfType<AudioManager>().Play("playerFotstep");
+    }
     public void Stomp()
     {
         FindObjectOfType<AudioManager>().Play("MonsterFootstep");

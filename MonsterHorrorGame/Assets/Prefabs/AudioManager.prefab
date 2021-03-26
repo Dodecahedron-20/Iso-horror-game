@@ -132,3 +132,19 @@ MonoBehaviour:
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
+  - name: Siren1
+    clip: {fileID: 8300000, guid: c680825c9ecfe24429bcbb8dad365db5, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.2
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: abientHorror
+    clip: {fileID: 8300000, guid: 95f045033f4e7984f99e8588fa912807, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

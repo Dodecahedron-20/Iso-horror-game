@@ -112,17 +112,17 @@ public class Player : MonoBehaviour
         }        
     }
 
-    public void PlayerSteps()
-    {
-        if (goo == false)
-        {
-            FindObjectOfType<AudioManager>().Play("playerFootsteps");
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Play("goosteps");
-        }
+    //public void PlayerSteps()
+    //{
+    //    if (goo == false)
+    //    {
+    //        FindObjectOfType<AudioManager>().Play("playerFotstep");
+    //    }
+    //    else
+    //    {
+    //        FindObjectOfType<AudioManager>().Play("goosteps");
+    //    }
 
-    }
+    //}
 
 }

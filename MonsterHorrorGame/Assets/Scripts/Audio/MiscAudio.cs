@@ -18,6 +18,7 @@ public class MiscAudio : MonoBehaviour
     public void StartWind()
     {
       FindObjectOfType<AudioManager>().Play("wind-whistle");
+       FindObjectOfType<AudioManager>().Play("abientHorror");
     }
 
     public void MonsterSwitch()
