@@ -18,11 +18,13 @@ public class MonsterDirector : MonoBehaviour
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawnpoint");
 
         InvokeRepeating("CheckMonsterStatus", 3.0f, 5f);
+
+        StartCoroutine(DisableBool(5f));
     }
 
     void Update()
     {
-        timer = Mathf.Clamp(timer -= Time.deltaTime, 0, 20);
+        timer = Mathf.Clamp(timer -= Time.deltaTime, 0, 50);
 
         if(monsterClone != null)
         {
@@ -81,6 +83,27 @@ public class MonsterDirector : MonoBehaviour
             {
                 timer = 50f;
             }          
+        }
+    }
+
+    IEnumerator DisableBool(float delay)
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(delay);
+            MonsterForget();
+        }
+    }
+
+    void MonsterForget()
+    {
+        Monster monster = monsterClone.GetComponent<Monster>();
+
+        bool remember = monsterClone.GetComponent<Monster>().remember;
+
+        if (remember == true && monster.dist > 5)
+        {
+            monster.remember = false;
         }
     }
 }

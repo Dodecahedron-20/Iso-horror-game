@@ -10,13 +10,16 @@ public class Monster : MonoBehaviour
 
     public bool spotted = false;
 
+    public bool remember = false;
+
     public float fovAngle;
     [Range(0, 360)]
     public float currentFOVAngle;
     public float radius;
 
-    [SerializeField] float walkSpeed = 3f;
+    [SerializeField] float walkSpeed = 1.5f;
     [SerializeField] float runSpeed = 5f;
+    [SerializeField] float searchSpeed = 3.5f;
     public float fovSpeed;
 
     public float dist;
@@ -63,6 +66,22 @@ public class Monster : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(transform.position, player.transform.position);
+
+        if (remember == true)
+        {
+            Vector3 dirToPlayer = transform.position - player.transform.position;
+
+            Vector3 newPos = transform.position - dirToPlayer;
+
+            nav.speed = searchSpeed;
+
+            nav.SetDestination(newPos);
+        }
+
+        if (spotted == false && remember == false)
+        {
+            nav.speed = walkSpeed;
+        }
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -87,34 +106,23 @@ public class Monster : MonoBehaviour
             Transform target = targetsInViewRadius[i].transform;
             Transform playerTargetPoint = player.transform;
             Vector3 dirToTarget = (playerTargetPoint.position - (transform.position - transform.forward)).normalized;
-            //Vector3 dirToTarget = (target.position - transform.position).normalized;
-            lastKnownPos = playerTargetPoint.position;
             if (Vector3.Angle(transform.forward, dirToTarget) < currentFOVAngle / 2) 
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
+                    remember = false;
                     spotted = true;
                     visibleTargets.Add(target);
                     lastKnownPos = playerTargetPoint.position;
-                    //currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
+                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
                     Chase();
                     Debug.Log("Spotted");                    
                 }
                 else
-                {
-                    nav.speed = runSpeed;
-
-                    Vector3 dirToPlayer = transform.position - lastKnownPos;
-
-                    Vector3 newPos = transform.position - dirToPlayer;
-
-                    nav.SetDestination(newPos);
-
-                    currentFOVAngle = Mathf.Clamp(currentFOVAngle + fovSpeed * Time.deltaTime, 60f, 180f);
-
-                    Invoke("SetBoolFalse", 10f);
+                {                 
+                    //Invoke("SetBoolFalse", 3f);
 
                     if (anim != null)
                     {
@@ -124,7 +132,7 @@ public class Monster : MonoBehaviour
             }
             else
             {
-                Invoke("SetBoolFalse", 10f);
+                Invoke("SetBoolFalse", 3f);
             }
         }
     }
@@ -132,6 +140,7 @@ public class Monster : MonoBehaviour
     void SetBoolFalse()
     {
         spotted = false;
+        remember = true;
         nav.speed = walkSpeed;
         currentFOVAngle = Mathf.Clamp(currentFOVAngle - fovSpeed * Time.deltaTime, 60f, 180f);
         if (anim != null)
@@ -147,20 +156,6 @@ public class Monster : MonoBehaviour
             angleInDegrees += transform.eulerAngles.y;
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
-
-    //Checks if player is within range of enemy
-    void Look()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-
-        foreach (var Player in hitColliders)
-        {
-            if (Player.gameObject.tag == "Player")
-            {
-
-            }
-        }
     }
 
     void Chase()
@@ -195,5 +190,4 @@ public class Monster : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("MonsterFootstep");
     }
-
 }
