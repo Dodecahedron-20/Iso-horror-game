@@ -108,6 +108,7 @@ MonoBehaviour:
     m_Bits: 512
   lastKnownPos: {x: 0, y: 0, z: 0}
   sightColour: {r: 207, g: 169, b: 255, a: 255}
+  nav: {fileID: 0}
   anim: {fileID: 3200323055145751315}
 --- !u!114 &6017529007893335844
 MonoBehaviour:
@@ -153,6 +154,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8398604632127592120, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43b4c9341bac54a48b1565165eeff9f6, type: 2}
     - target: {fileID: 8760159264263069729, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
