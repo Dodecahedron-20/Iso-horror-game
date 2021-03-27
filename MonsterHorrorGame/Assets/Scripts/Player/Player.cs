@@ -112,6 +112,12 @@ public class Player : MonoBehaviour
         }        
     }
 
+    //public void Death()
+    //{
+    //    moveSpeed = 0;
+    //    add animation here
+    //}
+
     //public void PlayerSteps()
     //{
     //    if (goo == false)
@@ -124,5 +130,4 @@ public class Player : MonoBehaviour
     //    }
 
     //}
-
 }
