@@ -29,7 +29,7 @@ public class KillPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         player.GetComponent<Player>().moveSpeed = 0f;
-        monster.GetComponent<Monster>().nav.speed = 0f;
+        monster.GetComponent<Monster>().nav.enabled = false;
         yield return new WaitForSeconds(0.5f);
         //animation for player death
         //animation for monster attack
