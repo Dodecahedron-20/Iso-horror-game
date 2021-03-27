@@ -69,6 +69,11 @@ public class Monster : MonoBehaviour
 
         if (remember == true)
         {
+            if (anim != null)
+            {
+                anim.SetBool("run", false);
+            }
+
             Vector3 dirToPlayer = transform.position - player.transform.position;
 
             Vector3 newPos = transform.position - dirToPlayer;
@@ -81,6 +86,11 @@ public class Monster : MonoBehaviour
         {
             if (spotted == false && remember == false)
             {
+                if (anim != null)
+                {
+                    anim.SetBool("run", false);
+                }
+
                 nav.speed = walkSpeed;
             }
         }      
