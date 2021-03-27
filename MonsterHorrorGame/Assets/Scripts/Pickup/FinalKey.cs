@@ -50,7 +50,7 @@ public class FinalKey : MonoBehaviour
     {
         door.UnLock();
         keyIcon.SetActive(true);
-        GameAnalytics.NewDesignEvent("key");
+        GameAnalytics.NewDesignEvent("Key");
         Destroy(key);
     }
 

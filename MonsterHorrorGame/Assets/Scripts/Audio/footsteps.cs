@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class footsteps : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource clip;
+    [SerializeField]
+    private AudioSource runClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +20,20 @@ public class footsteps : MonoBehaviour
     {
         
     }
+
+    public void Run()
+    {
+        runClip.Play();
+    }
+
     public void Walk()
     {
-        FindObjectOfType<AudioManager>().Play("playerFotstep");
+        clip.Play();
+        //FindObjectOfType<AudioManager>().Play("playerFotstep");
     }
     public void Stomp()
     {
-        FindObjectOfType<AudioManager>().Play("MonsterFootstep");
+        clip.Play();
+        //FindObjectOfType<AudioManager>().Play("MonsterFootstep");
     }
 }

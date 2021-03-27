@@ -30,8 +30,9 @@ void Start()
   {
       clickAudio.Play();
       SceneManager.LoadScene(1);
+      GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
 
-   }
+  }
 
 
 

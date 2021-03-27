@@ -11,7 +11,7 @@ public class FinishGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             pm.WinGame();
         }

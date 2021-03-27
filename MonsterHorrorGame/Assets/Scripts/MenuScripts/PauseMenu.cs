@@ -40,12 +40,15 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject fallUI = null;
 
+    //analytics things here:
+    private bool inplay = true;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
+        
         
         //StartCoroutine(GrowlsTest());
     }
@@ -122,13 +125,19 @@ public class PauseMenu : MonoBehaviour
     {
       FindObjectOfType<AudioManager>().Play("UI-Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game-Restart");
     }
 
     public void Resign()
     {
       FindObjectOfType<AudioManager>().Play("UI-Click");
         SceneManager.LoadScene(0);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game");
+
+        if (inplay == true)
+        {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game-Resign");
+        }
+
     }
 
     //inventory
@@ -157,8 +166,10 @@ public class PauseMenu : MonoBehaviour
     {
         black.SetActive(true);
         winPage.SetActive(true);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Game");
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
+        
     }
 
 
@@ -182,6 +193,7 @@ public class PauseMenu : MonoBehaviour
     {
         youDiedText.SetActive(true);
         black.SetActive(true);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game");
         yield return new WaitForSeconds(2f);
         youDiedText.SetActive(false);
 
@@ -189,7 +201,7 @@ public class PauseMenu : MonoBehaviour
         losePage.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-
+       
     }
 
     //death by falling out of the maze (somehow)
@@ -203,9 +215,11 @@ public class PauseMenu : MonoBehaviour
     {
         falldeathText.SetActive(true);
         black.SetActive(true);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game-FallKill");
+
         yield return new WaitForSeconds(5f);
-        falldeathText.SetActive(false);
-        
+        falldeathText.SetActive(false);        
+
         yield return new WaitForSeconds(0.5f);
         fallUI.SetActive(true);     
         Cursor.lockState = CursorLockMode.None;
