@@ -6,15 +6,21 @@ public class KillPlayer : MonoBehaviour
 {
     public Player player;
     public Monster monster;
-    public float damage;
+
 
     [SerializeField]
     PauseMenu pm;
 
-    void OnTriggerEnter(Collider player)
+    void Start()
     {
-        if (player.gameObject.tag == "Player")
-        {
+        player = GetComponent<Player>();
+        monster = GetComponent<Monster>();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {           
             Debug.Log("pow");
             StartCoroutine(Kill());           
         }
@@ -22,9 +28,7 @@ public class KillPlayer : MonoBehaviour
 
     IEnumerator Kill()
     {
-        yield return new WaitForSeconds(0.1f);
-        player = GetComponent<Player>();
-        monster = GetComponent<Monster>();
+        yield return new WaitForSeconds(0.1f);       
         player.moveSpeed = 0f;
         monster.nav.speed = 0f;
         yield return new WaitForSeconds(0.5f);
@@ -32,7 +36,6 @@ public class KillPlayer : MonoBehaviour
         //animation for monster attack
         yield return new WaitForSeconds(0.5f);
         pm.FadeInEnd();
-
     }
 
 }
