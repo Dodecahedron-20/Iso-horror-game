@@ -15083,7 +15083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &929938182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33712,6 +33712,14 @@ PrefabInstance:
     - target: {fileID: 7145489249652539735, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: m_Name
       value: PlayerPH
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
+      propertyPath: staminaToUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
+      propertyPath: isSprinting
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539741, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: m_LocalPosition.x
