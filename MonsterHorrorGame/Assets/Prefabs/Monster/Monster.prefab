@@ -57,9 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3018bca20ac8724b9594d7b9aeff11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
-  monster: {fileID: 6017529007893335847}
-  pm: {fileID: 6214604001680143633, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
+  player: {fileID: 0}
+  monster: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &6017529007893335852
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 457616632758439740}
   m_Layer: 0
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,6 +464,10 @@ PrefabInstance:
     - target: {fileID: 3873663838111989941, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.694778
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018856832701626218, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4081827117659589768, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

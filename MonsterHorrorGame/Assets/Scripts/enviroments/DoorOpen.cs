@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    [SerializeField]
-    private Animator anim;
-    [SerializeField]
-    private bool unlocked = true;
+    [SerializeField] Animator anim;
 
-    private bool beep = false;
+    [SerializeField] bool unlocked;
+
+    bool beep = false;
+    bool open = false;
 
     //[SerializeField]
     //private AudioSource openAudio = null;
@@ -19,31 +19,30 @@ public class DoorOpen : MonoBehaviour
     //[SerializeField]
     //private AudioSource brrrrAudio = null;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (unlocked)
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Monster")
         {
-            anim.SetTrigger("opendoor");
-        }
-        else
-        {
-          FindObjectOfType<AudioManager>().Play("Door-Brrr");
-        }
+            if (unlocked == true)
+            {
+              if (open == false)
+              {
+                anim.SetTrigger("opendoor");
+                open = true;
+                StartCoroutine(TimeToClose());
+              }
+              else
+              {
+                anim.SetTrigger("closedoor");
+                open = false;
+              }
 
-
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("Door-Brrr");
+            }
+        }
     }
 
     public void UnLock()
@@ -52,22 +51,24 @@ public class DoorOpen : MonoBehaviour
         beep = true;
     }
 
-
-//audio goes here:
+    //audio goes here:
     public void OpenAudio()
     {
-      //if (beep == true)
-      //{
+        //if (beep == true)
+        //{
         //beepAudio.Play();
-      //}
+        //}
 
-      FindObjectOfType<AudioManager>().Play("Door-Whoosh");
-
+        FindObjectOfType<AudioManager>().Play("Door-Whoosh");
     }
 
-
-
-
-
-
+    IEnumerator TimeToClose()
+    {
+      yield return new WaitForSeconds(2f);
+      if (open)
+      {
+        anim.SetTrigger("closedoor");
+        open = false;
+      }
+    }
 }

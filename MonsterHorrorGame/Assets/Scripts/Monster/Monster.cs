@@ -193,4 +193,9 @@ public class Monster : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("MonsterFootstep");
     }
+
+    //public void Kill()
+    //{
+    //    nav.speed = 0;
+    //}
 }

@@ -22,6 +22,7 @@ void Start()
 {
   GameAnalytics.Initialize();
   GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
+  Cursor.lockState = CursorLockMode.None;
 }
 
 

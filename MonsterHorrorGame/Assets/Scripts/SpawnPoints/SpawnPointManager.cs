@@ -17,7 +17,7 @@ public class SpawnPointManager : MonoBehaviour
     {
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            Debug.Log("currently assesing player distance to spawn point" + i);
+            //Debug.Log("currently assesing player distance to spawn point" + i);
             float d = Vector3.Distance(player.gameObject.transform.position, spawnPoints[i].transform.position);
 
             if (d < minDist)

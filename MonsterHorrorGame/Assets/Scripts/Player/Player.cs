@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
 
-    bool isSprinting = false;
+    [SerializeField] bool isSprinting = false;
+    [SerializeField] bool isMoving = false;
     bool isDead;
 
     [HideInInspector]
@@ -50,12 +51,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
         {
             Move();
         }
         else
         {
+            isMoving = false;
             anim.SetBool("run", false);
             anim.SetBool("walk", false);
         }
@@ -63,20 +65,23 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (currentStamina > 0)
+            if(isMoving == true)
             {
-                anim.SetBool("run", true);
-                isSprinting = true;
-                Sprint();
+                if (currentStamina > 0)
+                {
+                    anim.SetBool("run", true);
+                    isSprinting = true;
+                    Sprint();
 
-            }
-            else
-            {
-                moveSpeed = walkSpeed;
-                isSprinting = false;
-                anim.SetBool("run", false);
-                anim.SetBool("walk", true);
-            }
+                }
+                else
+                {
+                    moveSpeed = walkSpeed;
+                    isSprinting = false;
+                    anim.SetBool("run", false);
+                    anim.SetBool("walk", true);
+                }
+            }           
         }
         else
         {
@@ -89,6 +94,8 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        isMoving = true;
+
         Vector3 direction = new Vector3(Input.GetAxis("HorizontalKey"), 0, Input.GetAxis("VerticalKey"));
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("HorizontalKey");
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("VerticalKey");
@@ -112,6 +119,12 @@ public class Player : MonoBehaviour
         }        
     }
 
+    //public void Death()
+    //{
+    //    moveSpeed = 0;
+    //    add animation here
+    //}
+
     //public void PlayerSteps()
     //{
     //    if (goo == false)
@@ -124,5 +137,4 @@ public class Player : MonoBehaviour
     //    }
 
     //}
-
 }

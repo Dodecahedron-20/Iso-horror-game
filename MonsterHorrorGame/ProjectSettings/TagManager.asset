@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Waypoint
   - Spawnpoint
+  - PauseMenu
+  - Monster
   layers:
   - Default
   - TransparentFX
