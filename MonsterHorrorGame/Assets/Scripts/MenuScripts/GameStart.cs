@@ -22,6 +22,9 @@ public class GameStart : MonoBehaviour
     [SerializeField]
     private MiscAudio msc;
 
+    [SerializeField]
+    private PauseMenu pm;
+
 
 
     // Start is called before the first frame update

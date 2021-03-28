@@ -29,6 +29,7 @@ public class DoorOpen : MonoBehaviour
               {
                 anim.SetTrigger("opendoor");
                 open = true;
+                StartCoroutine(TimeToClose());
               }
               else
               {
@@ -59,5 +60,15 @@ public class DoorOpen : MonoBehaviour
         //}
 
         FindObjectOfType<AudioManager>().Play("Door-Whoosh");
+    }
+
+    IEnumerator TimeToClose()
+    {
+      yield return new WaitForSeconds(2f);
+      if (open)
+      {
+        anim.SetTrigger("closedoor");
+        open = false;
+      }
     }
 }

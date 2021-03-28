@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu = null;
     private bool paused = false;
+    private bool pauseAble = false;
 
     //inventory Menu:
     [SerializeField]
@@ -59,6 +60,8 @@ public class PauseMenu : MonoBehaviour
 
       if (Input.GetKeyDown(KeyCode.Escape))
       {
+        if (pauseAble == true)
+        {
           if (paused == false)
           {
               PauseMenuON();
@@ -67,7 +70,7 @@ public class PauseMenu : MonoBehaviour
           {
               PauseMenuOFF();
           }
-
+        }
       }
 
       if (Input.GetKeyDown(KeyCode.Tab)) //|| (Input.GetKeyDown(KeyCode.I))
