@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    [SerializeField]
-    private Animator anim;
-    [SerializeField]
-    private bool unlocked = true;
+    [SerializeField] Animator anim;
 
-    private bool beep = false;
+    [SerializeField] bool unlocked;
 
-    private bool open = false;
+    bool beep = false;
+    bool open = false;
 
     //[SerializeField]
     //private AudioSource openAudio = null;
@@ -21,40 +19,23 @@ public class DoorOpen : MonoBehaviour
     //[SerializeField]
     //private AudioSource brrrrAudio = null;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-
-        if (unlocked)
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Monster")
         {
-          if (open)
-          {
-            //anim.SetTrigger("opendoor");
-          }
-          else
-          {
-
-          }
-                    
+            if (unlocked == true)
+            {
+                Debug.Log("Open Door");
+                //anim.SetTrigger("opendoor");
+                FindObjectOfType<AudioManager>().Play("Door-Brrr");
+            }
+            else
+            {
+                Debug.Log("Close Door");
+                //anim.SetTrigger("closedoor");
+                FindObjectOfType<AudioManager>().Play("Door-Brrr");
+            }
         }
-        else
-        {
-          FindObjectOfType<AudioManager>().Play("Door-Brrr");
-        }
-
-
     }
 
     public void UnLock()
@@ -63,22 +44,14 @@ public class DoorOpen : MonoBehaviour
         beep = true;
     }
 
-
-//audio goes here:
+    //audio goes here:
     public void OpenAudio()
     {
-      //if (beep == true)
-      //{
+        //if (beep == true)
+        //{
         //beepAudio.Play();
-      //}
+        //}
 
-      FindObjectOfType<AudioManager>().Play("Door-Whoosh");
-
+        FindObjectOfType<AudioManager>().Play("Door-Whoosh");
     }
-
-
-
-
-
-
 }

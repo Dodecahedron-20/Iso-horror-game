@@ -36,5 +36,4 @@ public class KillPlayer : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         pauseMenu.GetComponent<PauseMenu>().FadeInEnd();
     }
-
 }
