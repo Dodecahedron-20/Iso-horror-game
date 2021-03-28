@@ -22,6 +22,7 @@ public class DanceDance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      Time.timeScale = 1;
       Cursor.lockState = CursorLockMode.Locked;
       monsterAnim.SetBool("dance", true);
       StartCoroutine(DanceDanceBaby());
@@ -58,6 +59,7 @@ public class DanceDance : MonoBehaviour
 
     public void MainMenu()
     {
+      
       SceneManager.LoadScene(0);
       //StartCoroutine(Leave());
     }
