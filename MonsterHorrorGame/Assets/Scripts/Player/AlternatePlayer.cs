@@ -5,12 +5,19 @@ using UnityEngine;
 public class AlternatePlayer : MonoBehaviour
 {
 
-    [SerializeField]
+
     private float speed;
+    [SerializeField]
+    private float walkSpeed;
+    [SerializeField]
+    private float sprintSpeed;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+      speed = walkSpeed;
 
     }
 
@@ -41,13 +48,25 @@ public class AlternatePlayer : MonoBehaviour
         vert -= 1;
       }
 
-      var movement = new Vector3(horiz, 0, vert).normalized * speed * Time.deltaTime;
+      if (Input.GetKey(KeyCode.LeftShift))
+      {
+        speed = sprintSpeed;
+      }
+      else
+      {
+        speed = walkSpeed;
+      }
+
+      var movement = new Vector3(vert, 0, horiz).normalized * speed * Time.deltaTime;
       transform.position += movement;
 
 
     }
 
-
+    private void Sprint()
+    {
+      speed = sprintSpeed;
+    }
 
 
 
