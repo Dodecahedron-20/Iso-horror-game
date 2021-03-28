@@ -25,14 +25,20 @@ public class DoorOpen : MonoBehaviour
         {
             if (unlocked == true)
             {
-                Debug.Log("Open Door");
-                //anim.SetTrigger("opendoor");
-                FindObjectOfType<AudioManager>().Play("Door-Brrr");
+              if (open == false)
+              {
+                anim.SetTrigger("opendoor");
+                open = true;
+              }
+              else
+              {
+                anim.SetTrigger("closedoor");
+                open = false;
+              }
+
             }
             else
             {
-                Debug.Log("Close Door");
-                //anim.SetTrigger("closedoor");
                 FindObjectOfType<AudioManager>().Play("Door-Brrr");
             }
         }

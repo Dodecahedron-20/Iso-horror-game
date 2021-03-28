@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7145489249407478127
 Transform:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145489249407478126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.9460001, z: -0.495}
+  m_LocalPosition: {x: -0.04, y: -0.37, z: -0.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7145489249695564817}
@@ -215,9 +215,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.22957604, g: 0.10034709, b: 0.5188679, a: 1}
-  m_Intensity: 2
-  m_Range: 1
+  m_Color: {r: 0.38595557, g: 0.06763971, b: 0.754717, a: 1}
+  m_Intensity: 0.5
+  m_Range: 4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -401,6 +401,8 @@ MonoBehaviour:
   maxStamina: 100
   currentStamina: 0
   staminaToUse: 0
+  isSprinting: 0
+  isMoving: 0
   waypoint: []
   anim: {fileID: 5869948789967231699}
 --- !u!1 &7145489249695564816
@@ -545,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053336864948902118, guid: 3c5c2d91d191a9f49ad6c50fb3cd7532, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.448
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 3053336864948902118, guid: 3c5c2d91d191a9f49ad6c50fb3cd7532, type: 3}
       propertyPath: m_LocalRotation.x
