@@ -80,7 +80,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 85a56731e199642ae880021bedf50610, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.4
+    volume: 0.06
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu = null;
     private bool paused = false;
-    private bool pauseAble = false;
+    private bool pauseAble = true;
 
     //inventory Menu:
     [SerializeField]
