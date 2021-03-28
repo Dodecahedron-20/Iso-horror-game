@@ -12,6 +12,8 @@ public class DoorOpen : MonoBehaviour
 
     private bool beep = false;
 
+    private bool open = false;
+
     //[SerializeField]
     //private AudioSource openAudio = null;
     //[SerializeField]
@@ -34,9 +36,18 @@ public class DoorOpen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (unlocked)
         {
-            anim.SetTrigger("opendoor");
+          if (open)
+          {
+            //anim.SetTrigger("opendoor");
+          }
+          else
+          {
+
+          }
+                    
         }
         else
         {
