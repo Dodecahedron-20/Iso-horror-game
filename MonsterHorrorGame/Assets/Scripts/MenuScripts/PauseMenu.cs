@@ -48,8 +48,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
-        
-        
+
+
         //StartCoroutine(GrowlsTest());
     }
 
@@ -70,7 +70,7 @@ public class PauseMenu : MonoBehaviour
 
       }
 
-      if (Input.GetKeyDown(KeyCode.Tab))
+      if (Input.GetKeyDown(KeyCode.Tab)) //|| (Input.GetKeyDown(KeyCode.I))
       {
         if (checkinven == false)
         {
@@ -169,7 +169,7 @@ public class PauseMenu : MonoBehaviour
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Game");
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-        
+
     }
 
 
@@ -186,7 +186,7 @@ public class PauseMenu : MonoBehaviour
     public void FadeInEnd()
     {
         StartCoroutine(YouDied());
-        
+
     }
 
     IEnumerator YouDied()
@@ -201,7 +201,7 @@ public class PauseMenu : MonoBehaviour
         losePage.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-       
+
     }
 
     //death by falling out of the maze (somehow)
@@ -218,10 +218,10 @@ public class PauseMenu : MonoBehaviour
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Game-FallKill");
 
         yield return new WaitForSeconds(5f);
-        falldeathText.SetActive(false);        
+        falldeathText.SetActive(false);
 
         yield return new WaitForSeconds(0.5f);
-        fallUI.SetActive(true);     
+        fallUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
     }
