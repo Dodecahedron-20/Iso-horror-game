@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     int staminaToUse;
+
+    [SerializeField]
+    Slider staminaBar;
 
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
@@ -43,6 +47,8 @@ public class Player : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
         currentStamina = maxStamina;
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = maxStamina;
 
         anim.SetBool("run", false);
         anim.SetBool("walk", false);
@@ -116,6 +122,7 @@ public class Player : MonoBehaviour
         {
             moveSpeed = sprintSpeed;
             currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
+            staminaBar.value = currentStamina;
         }        
     }
 
