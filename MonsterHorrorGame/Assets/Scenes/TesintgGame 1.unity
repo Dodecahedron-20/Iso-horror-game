@@ -17698,6 +17698,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 293456328}
     m_Modifications:
+    - target: {fileID: 1142603048335506257, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142603048335506257, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: de024da4b953ae1408082e1459c815cb, type: 2}
     - target: {fileID: 1502983033546824324, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
       propertyPath: m_Name
       value: wall (10)
@@ -21551,6 +21559,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: table-mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 1190890139545007078, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a7c0d13b2d60448bcf4facaa66849, type: 2}
+    - target: {fileID: 2913502510908316156, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a7c0d13b2d60448bcf4facaa66849, type: 2}
+    - target: {fileID: 3101851766606468630, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a7c0d13b2d60448bcf4facaa66849, type: 2}
+    - target: {fileID: 5846032868601797716, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a7c0d13b2d60448bcf4facaa66849, type: 2}
+    - target: {fileID: 5853709902685393665, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a7c0d13b2d60448bcf4facaa66849, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbccccdc9cb24298b966bdb5d808977, type: 3}
 --- !u!1001 &1322879992
@@ -33257,6 +33285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: syringe-mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 1688671453696453256, guid: d25b49395466ed24581d44e73284f4cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2027900840158375986, guid: d25b49395466ed24581d44e73284f4cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
@@ -33786,6 +33818,10 @@ PrefabInstance:
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: isSprinting
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
+      propertyPath: maxStamina
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539741, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: m_LocalPosition.x
