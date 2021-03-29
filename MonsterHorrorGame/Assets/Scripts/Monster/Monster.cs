@@ -187,6 +187,21 @@ public class Monster : MonoBehaviour
 
             nav.SetDestination(newPos);
         }
+        else
+        {
+            nav.speed = searchSpeed;
+            
+            if(anim != null)
+            {
+                anim.SetBool("run", true);
+            }
+
+            Vector3 dirToPlayer = transform.position - lastKnownPos;
+
+            Vector3 newPos = transform.position - dirToPlayer;
+
+            nav.SetDestination(newPos);
+        }
     }
 
     public void Footsteps()

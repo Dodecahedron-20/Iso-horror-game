@@ -269,6 +269,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6017529007893335846}
     m_Modifications:
+    - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: MaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: DopplerLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.055555556
+      objectReference: {fileID: 0}
+    - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1072773917371322735, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_Lightmapping
       value: 1
@@ -588,6 +608,30 @@ PrefabInstance:
     - target: {fileID: 7977916836562266062, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.2820215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: DopplerLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.055555556
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: MinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275794072280447643, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: m_Name
