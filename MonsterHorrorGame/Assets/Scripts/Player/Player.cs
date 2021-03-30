@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
         currentStamina += maxStamina;
         staminaBar.value = currentStamina;
         staminaBarTwo.value = currentStamina;
+        
     }
 
     //public void Death()
