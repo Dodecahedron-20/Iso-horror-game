@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6927107217267916728}
   - component: {fileID: 6824721905370086071}
   m_Layer: 8
-  m_Name: Spot Light
+  m_Name: player-light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,6 +495,7 @@ MonoBehaviour:
   currentStamina: 0
   staminaToUse: 0
   staminaBar: {fileID: 0}
+  staminaBarTwo: {fileID: 0}
   isSprinting: 0
   isMoving: 0
   waypoint: []
@@ -689,7 +690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053336864948902121, guid: 3c5c2d91d191a9f49ad6c50fb3cd7532, type: 3}
       propertyPath: m_SpotAngle
-      value: 80
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053336864948902121, guid: 3c5c2d91d191a9f49ad6c50fb3cd7532, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5c2d91d191a9f49ad6c50fb3cd7532, type: 3}

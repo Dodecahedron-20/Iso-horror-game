@@ -7,23 +7,26 @@ using GameAnalyticsSDK;
 public class MainMenu : MonoBehaviour
 {
 
-  // in menu pages/changes:
-  [SerializeField]
-  private GameObject Menu = null;
-  [SerializeField]
-  private GameObject CreditMenu = null;
-  [SerializeField]
-  private GameObject QuitPrompt = null;
+    // in menu pages/changes:
+    [SerializeField]
+    private GameObject Menu = null;
+    [SerializeField]
+    private GameObject CreditMenu = null;
+    [SerializeField]
+    private GameObject InfoMenu = null;
+    [SerializeField]
+    private GameObject QuitPrompt = null;
+    
     //Audio interactions
-  [SerializeField]
-  private AudioSource clickAudio;
+    [SerializeField]
+    private AudioSource clickAudio;
 
-void Start()
-{
-  GameAnalytics.Initialize();
-  GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
-  Cursor.lockState = CursorLockMode.None;
-}
+    void Start()
+    {
+        GameAnalytics.Initialize();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
+        Cursor.lockState = CursorLockMode.None;
+    }
 
 
   //Start the Game things:
@@ -53,6 +56,20 @@ void Start()
       Menu.SetActive(true);
   }
 
+    //controll info???
+    public void InfoOn()
+    {
+        clickAudio.Play();
+        InfoMenu.SetActive(true);
+        Menu.SetActive(false);
+    }
+
+    public void InfoOff()
+    {
+        clickAudio.Play();
+        InfoMenu.SetActive(false);
+        Menu.SetActive(true);
+    }
 
 
   //Quit things:
