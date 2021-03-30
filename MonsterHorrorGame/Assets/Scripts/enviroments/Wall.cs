@@ -17,31 +17,25 @@ public class Wall : MonoBehaviour
     void Start()
     {
       currentGameObject = gameObject;
-
+        //currentGameObject.GetComponent<Renderer>().material; 
+        //- ??????
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void OnTriggerEnter(Collider other)
     {
-      if (Input.GetKeyDown(KeyCode.Q))
-      {
         if (trans == false)
         {
-          Transparent(currentGameObject.GetComponent<Renderer>().material, alpha);
-          trans = true;
+            Transparent(currentGameObject.GetComponent<Renderer>().material, alpha);
+            trans = true;
         }
         else
         {
-          Transparent(currentGameObject.GetComponent<Renderer>().material, opaque);
-          trans = false;
+            Transparent(currentGameObject.GetComponent<Renderer>().material, opaque);
+            trans = false;
         }
-
-      }
     }
-
-
-
-
 
 
 
