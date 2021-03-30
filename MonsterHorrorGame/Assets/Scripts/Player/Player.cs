@@ -61,8 +61,7 @@ public class Player : MonoBehaviour
         anim.SetBool("walk", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
         {
@@ -75,7 +74,6 @@ public class Player : MonoBehaviour
             anim.SetBool("walk", false);
         }
 
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             if(isMoving == true)
@@ -85,7 +83,6 @@ public class Player : MonoBehaviour
                     anim.SetBool("run", true);
                     isSprinting = true;
                     Sprint();
-
                 }
                 else
                 {
@@ -101,7 +98,6 @@ public class Player : MonoBehaviour
             moveSpeed = walkSpeed;
             isSprinting = false;
             anim.SetBool("run", false);
-
         }
     }
 

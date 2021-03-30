@@ -1004,7 +1004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 32.915, y: -90, z: -90}
 --- !u!1001 &67134565
 PrefabInstance:
@@ -3519,6 +3519,7 @@ GameObject:
   - component: {fileID: 211077132}
   - component: {fileID: 211077131}
   - component: {fileID: 211077130}
+  - component: {fileID: 211077133}
   m_Layer: 0
   m_Name: Spawnpoint (1)
   m_TagString: Spawnpoint
@@ -3602,7 +3603,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &211077133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211077128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!1001 &212014809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6888,7 +6903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &380928975
 Transform:
   m_ObjectHideFlags: 0
@@ -10513,7 +10528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 184723432}
   spawnPoints: []
-  minDist: 10
+  minDist: 15
+  maxDist: 35
 --- !u!4 &579568484
 Transform:
   m_ObjectHideFlags: 0
@@ -10872,6 +10888,7 @@ GameObject:
   - component: {fileID: 591898006}
   - component: {fileID: 591898005}
   - component: {fileID: 591898004}
+  - component: {fileID: 591898007}
   m_Layer: 0
   m_Name: Spawnpoint (4)
   m_TagString: Spawnpoint
@@ -10955,7 +10972,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &591898007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591898002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!1001 &593633635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14195,6 +14226,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2274453839934324798, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
   m_PrefabInstance: {fileID: 763924595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &775152259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775152262}
+  - component: {fileID: 775152261}
+  - component: {fileID: 775152260}
+  m_Layer: 0
+  m_Name: TriggerMonsterDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &775152260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775152259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6b46f94d77dc34893f1755839af8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterDirector: {fileID: 1360365765}
+--- !u!65 &775152261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775152259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &775152262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775152259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: 2, z: 7}
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778540762
 GameObject:
   m_ObjectHideFlags: 0
@@ -14501,6 +14590,7 @@ GameObject:
   - component: {fileID: 793928236}
   - component: {fileID: 793928235}
   - component: {fileID: 793928234}
+  - component: {fileID: 793928237}
   m_Layer: 0
   m_Name: Spawnpoint (5)
   m_TagString: Spawnpoint
@@ -14584,7 +14674,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &793928237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793928232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!1 &803320590
 GameObject:
   m_ObjectHideFlags: 0
@@ -16901,6 +17005,7 @@ GameObject:
   - component: {fileID: 955603790}
   - component: {fileID: 955603789}
   - component: {fileID: 955603788}
+  - component: {fileID: 955603791}
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: Spawnpoint
@@ -16984,7 +17089,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &955603791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955603786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!1001 &958500266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19876,6 +19995,7 @@ GameObject:
   - component: {fileID: 1166012878}
   - component: {fileID: 1166012877}
   - component: {fileID: 1166012876}
+  - component: {fileID: 1166012879}
   m_Layer: 0
   m_Name: Spawnpoint (3)
   m_TagString: Spawnpoint
@@ -19959,7 +20079,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &1166012879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166012874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!4 &1169286125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2274453839934324798, guid: df9a2282e1687224e9f7d3237068bf73, type: 3}
@@ -21212,6 +21346,7 @@ GameObject:
   - component: {fileID: 1264449328}
   - component: {fileID: 1264449327}
   - component: {fileID: 1264449326}
+  - component: {fileID: 1264449329}
   m_Layer: 0
   m_Name: Spawnpoint (2)
   m_TagString: Spawnpoint
@@ -21295,7 +21430,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 10
+  radius: 15
+--- !u!114 &1264449329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264449324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2341e51381da534aba927667e1836fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.0450387, a: 1}
+  radius: 35
 --- !u!1 &1264523420
 GameObject:
   m_ObjectHideFlags: 0
@@ -36319,7 +36468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: staminaToUse
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: isSprinting
@@ -36327,7 +36476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: maxStamina
-      value: 12
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: staminaBar
