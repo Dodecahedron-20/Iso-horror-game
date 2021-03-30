@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     int staminaToUse;
 
     [SerializeField]
+    Text staminaNumberText;
+    private int spareStamina = 0;
+
+    [SerializeField]
     Slider staminaBar;
 
     [SerializeField]
@@ -55,10 +59,19 @@ public class Player : MonoBehaviour
 
         staminaBarTwo.maxValue = maxStamina;
         staminaBarTwo.value = maxStamina;
+        staminaNumberText.text = "Stamina: " + spareStamina;
 
 
         anim.SetBool("run", false);
         anim.SetBool("walk", false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
+        {
+            StaminaRegen();
+        }
     }
 
     void FixedUpdate()
@@ -130,9 +143,17 @@ public class Player : MonoBehaviour
         }        
     }
 
-    public void StaminaRegen()
+    public void StaminaCollect()
     {
-        currentStamina += 12f;
+        spareStamina += 1;
+        staminaNumberText.text = "Stamina: " + spareStamina;
+    }
+
+    private void StaminaRegen()
+    {
+        spareStamina -= 1;
+        staminaNumberText.text = "Stamina: " + spareStamina;
+        currentStamina += maxStamina;
         staminaBar.value = currentStamina;
         staminaBarTwo.value = currentStamina;
     }

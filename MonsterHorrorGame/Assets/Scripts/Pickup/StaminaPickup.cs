@@ -34,7 +34,7 @@ public class StaminaPickup : MonoBehaviour
         
         interactIcon.SetActive(false);
         item = false;
-        player.StaminaRegen();
+        player.StaminaCollect();
         Destroy(gameObject);
     }
 
