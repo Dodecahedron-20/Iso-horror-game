@@ -6888,7 +6888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &380928975
 Transform:
   m_ObjectHideFlags: 0
@@ -16458,8 +16458,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.626432, z: 1.1850109}
+  m_Center: {x: 0, y: 0.31321663, z: -0.092505455}
 --- !u!4 &929938183
 Transform:
   m_ObjectHideFlags: 0
@@ -28188,6 +28188,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugDrawRadius: 50
   _connectivityRadius: 50
+--- !u!114 &1650555388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2904715526047279281, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+  m_PrefabInstance: {fileID: 1805425949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1651671455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30300,6 +30311,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 190121824596226486, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580622372771863288, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580622372771863288, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951407324789255349, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3316320787067647083, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
@@ -36310,6 +36333,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 671306233}
+    - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
+      propertyPath: staminaBarTwo
+      value: 
+      objectReference: {fileID: 1650555388}
     - target: {fileID: 7145489249652539741, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

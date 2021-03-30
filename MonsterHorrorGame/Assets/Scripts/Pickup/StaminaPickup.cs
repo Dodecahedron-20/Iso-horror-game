@@ -31,10 +31,10 @@ public class StaminaPickup : MonoBehaviour
 
     void PickUp()
     {
-        player.currentStamina += 8f;
+        
         interactIcon.SetActive(false);
         item = false;
-
+        player.StaminaRegen();
         Destroy(gameObject);
     }
 

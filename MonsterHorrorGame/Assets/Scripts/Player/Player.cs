@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Slider staminaBar;
 
+    [SerializeField]
+    Slider staminaBarTwo;
+
     //private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     //Coroutine regen;
 
@@ -49,6 +52,10 @@ public class Player : MonoBehaviour
         currentStamina = maxStamina;
         staminaBar.maxValue = maxStamina;
         staminaBar.value = maxStamina;
+
+        staminaBarTwo.maxValue = maxStamina;
+        staminaBarTwo.value = maxStamina;
+
 
         anim.SetBool("run", false);
         anim.SetBool("walk", false);
@@ -123,7 +130,15 @@ public class Player : MonoBehaviour
             moveSpeed = sprintSpeed;
             currentStamina = Mathf.Clamp(currentStamina - staminaToUse * Time.deltaTime, 0f, 100f);
             staminaBar.value = currentStamina;
+            staminaBarTwo.value = currentStamina;
         }        
+    }
+
+    public void StaminaRegen()
+    {
+        currentStamina += 12f;
+        staminaBar.value = currentStamina;
+        staminaBarTwo.value = currentStamina;
     }
 
     //public void Death()
