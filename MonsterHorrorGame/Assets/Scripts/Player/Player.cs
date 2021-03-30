@@ -66,16 +66,13 @@ public class Player : MonoBehaviour
         anim.SetBool("walk", false);
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
         {
             StaminaRegen();
         }
-    }
 
-    void FixedUpdate()
-    {
         if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
         {
             Move();
