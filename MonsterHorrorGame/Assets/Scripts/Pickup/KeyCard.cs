@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyCard : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class KeyCard : MonoBehaviour
 
     [SerializeField]
     private GameObject interactIcon = null;
+
+    //analytics sting name:
+    //[SerializeField]
+    //private String name;
+    //??????????
 
     //the KeyCard Object
     [SerializeField]
@@ -49,7 +55,7 @@ public class KeyCard : MonoBehaviour
             item = true;
             interactIcon.SetActive(true);
             StartCoroutine(Timer());
-        } 
+        }
     }
 
     private void CollectCard()
@@ -57,6 +63,7 @@ public class KeyCard : MonoBehaviour
         cardIcon.SetActive(true);
         interactIcon.SetActive(false);
         item = false;
+        //GameAnalytics.NewDesignEvent(name);
         Destroy(keyCard);
     }
 

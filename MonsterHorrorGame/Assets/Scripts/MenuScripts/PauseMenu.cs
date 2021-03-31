@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using GameAnalyticsSDK;
 
 public class PauseMenu : MonoBehaviour
@@ -40,6 +41,24 @@ public class PauseMenu : MonoBehaviour
     private GameObject falldeathText = null;
     [SerializeField]
     private GameObject fallUI = null;
+
+    //collection popup confirms:
+    [SerializeField]
+    private GameObject torchIcon = null;
+    [SerializeField]
+    private GameObject blueCardIcon = null;
+    [SerializeField]
+    private GameObject purpleCardIcon = null;
+    [SerializeField]
+    private GameObject greenCardIcon = null;
+    [SerializeField]
+    private GameObject keyIcon = null;
+    [SerializeField]
+    private GameObject staminaIcon = null;
+    //[SerializeField]
+    //private Text staminaNumberText = "x0";
+    [SerializeField]
+    private GameObject collectScreen = null;
 
     //analytics things here:
     private bool inplay = true;
@@ -161,6 +180,36 @@ public class PauseMenu : MonoBehaviour
       checkinven = false;
       inventory.SetActive(false);
     }
+
+      //confimation Pickups:
+
+      public void TorchCollect()
+      {
+        collectScreen.SetActive(true);
+        torchIcon.SetActive(true);
+        StartCoroutine(IconOff());
+      }
+
+      public void StaminaCollect()
+      {
+        collectScreen.SetActive(true);
+        staminaIcon.SetActive(true);
+        //staminaNumberText.text = "";
+        StartCoroutine(IconOff());
+      }
+
+      IEnumerator IconOff()
+      {
+        yield return new WaitForSeconds(2);
+        collectScreen.SetActive(false);
+        torchIcon.SetActive(false);
+        blueCardIcon.SetActive(false);
+        purpleCardIcon.SetActive(false);
+        greenCardIcon.SetActive(false);
+        keyIcon.SetActive(false);
+        staminaIcon.SetActive(false);
+
+      }
 
 
 

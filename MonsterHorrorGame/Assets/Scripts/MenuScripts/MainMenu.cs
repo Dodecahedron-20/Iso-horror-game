@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     private GameObject InfoMenu = null;
     [SerializeField]
     private GameObject QuitPrompt = null;
-    
+
     //Audio interactions
     [SerializeField]
     private AudioSource clickAudio;
@@ -26,6 +26,23 @@ public class MainMenu : MonoBehaviour
         GameAnalytics.Initialize();
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+        BailToMain();
+      }
+    }
+
+    private void BailToMain()
+    {
+      clickAudio.Play();
+      Menu.SetActive(true);
+      CreditMenu.SetActive(false);
+      InfoMenu.SetActive(false);
+      QuitPrompt.SetActive(false);
     }
 
 

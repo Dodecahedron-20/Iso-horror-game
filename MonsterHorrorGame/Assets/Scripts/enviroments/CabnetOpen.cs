@@ -22,7 +22,7 @@ public class CabnetOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && interact == true)
         {
             OpenDraw();
         }
@@ -47,8 +47,6 @@ public class CabnetOpen : MonoBehaviour
 
     private void OpenDraw()
     {
-        if(interact == true)
-        {
             if (closed == true)
             {
                 anim.SetTrigger("Open");
@@ -66,7 +64,11 @@ public class CabnetOpen : MonoBehaviour
                 closed = true;
 
             }
-        }       
+    }
+
+    public void NowEmpty()
+    {
+      hasItems = false;
     }
 
 }
