@@ -14,11 +14,14 @@ public class MiscAudio : MonoBehaviour
     private float goo = 5;
 
 
+
+
     //"wind whistle":
     public void StartWind()
     {
-      FindObjectOfType<AudioManager>().Play("wind-whistle");
-       FindObjectOfType<AudioManager>().Play("abientHorror");
+        FindObjectOfType<AudioManager>().Play("wind-whistle");
+        FindObjectOfType<AudioManager>().Play("abientHorror");
+        Growls();
     }
 
     public void MonsterSwitch()
@@ -36,13 +39,13 @@ public class MiscAudio : MonoBehaviour
 
     IEnumerator Growls()
     {
-      if (mon == false)
+      if (mon)
       {
-        yield return new WaitForSeconds(23.5f);
+        yield return new WaitForSeconds(8f);
         FindObjectOfType<AudioManager>().Play("monsterGrowl");
 
-        //yield return new WaitForSeconds(30f);
-        //FindObjectOfType<AudioManager>().Play("monsterGrowl");
+        yield return new WaitForSeconds(13f);
+        FindObjectOfType<AudioManager>().Play("monsterGrowl");
 
         StartCoroutine(Growls());
       }
@@ -52,14 +55,15 @@ public class MiscAudio : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      if (lab == false)
-      {
-        lab = true;
-      }
-      else
-      {
-        lab = false;
-      }
+        if (other.tag == "Player" && lab == false)
+        {
+            lab = true;
+            StartCoroutine(LabAudio());
+        }
+        else if (other.tag == "Player")
+        {
+            lab = false;
+        }
 
     }
 
@@ -67,20 +71,19 @@ public class MiscAudio : MonoBehaviour
     //probably not?
     IEnumerator LabAudio()
     {
-         if (lab)
-          {
+        if (lab == true)
+        {
             FindObjectOfType<AudioManager>().Play("bubble1");
              yield return new WaitForSeconds(0.8f);
 
             FindObjectOfType<AudioManager>().Play("bubble2");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
 
             FindObjectOfType<AudioManager>().Play("bubble3");
-            yield return new WaitForSeconds(1f);
-
+            yield return new WaitForSeconds(0.5f);
 
             StartCoroutine(LabAudio());
-          }
+        }
     }
 
 
