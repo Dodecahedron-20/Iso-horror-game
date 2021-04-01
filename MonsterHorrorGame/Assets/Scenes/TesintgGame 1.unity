@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8276541339316522963, guid: bcdfcedd371365f448c8d311a09ca30a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcdfcedd371365f448c8d311a09ca30a, type: 3}
 --- !u!4 &16209675 stripped
@@ -19963,7 +19967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &929938182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29254,7 +29258,7 @@ MonoBehaviour:
   monsterPrefab: {fileID: 6017529007893335846, guid: 6d22117dc77064a4b95575aefa12992f, type: 3}
   monsterClone: {fileID: 0}
   monsterActive: 0
-  setTimer: 50
+  setTimer: 20
   currentTimer: 0
   spawnPoints: []
 --- !u!4 &1360365767
@@ -31933,8 +31937,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3742409, y: 2.5371952, z: 1.7709007}
-  m_Center: {x: 0.18712044, y: 0.2314024, z: 0.091630936}
+  m_Size: {x: 2.743721, y: 1.6080865, z: 2.8282616}
+  m_Center: {x: 0.8718607, y: -0.23315257, z: 0.6203117}
 --- !u!4 &1477723243
 Transform:
   m_ObjectHideFlags: 0
@@ -46614,7 +46618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: staminaToUse
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7145489249652539736, guid: cbfe229be8d64ac4fb7b191077bb4ea1, type: 3}
       propertyPath: isSprinting
