@@ -27,7 +27,7 @@ public class KillPlayer : MonoBehaviour
 
     IEnumerator Kill()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         player.GetComponent<Player>().moveSpeed = 0f;
         monster.GetComponent<Monster>().nav.enabled = false;
         yield return new WaitForSeconds(0.5f);

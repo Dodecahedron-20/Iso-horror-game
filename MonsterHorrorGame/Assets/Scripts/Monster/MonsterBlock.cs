@@ -25,7 +25,15 @@ public class MonsterBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      monDirect.SetActive(true);
-      Destroy(thisthing);
+        StartCoroutine(Wait());
+     
     }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(10f);
+        monDirect.SetActive(true);
+        Destroy(thisthing);
+    }
+
 }

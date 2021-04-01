@@ -271,7 +271,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MinDistance
-      value: 10
+      value: 11.4887905
       objectReference: {fileID: 0}
     - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MaxDistance
@@ -623,14 +623,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MinDistance
-      value: 5
+      value: 8.183474
       objectReference: {fileID: 0}
     - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MaxDistance
-      value: 10
+      value: 17.464615
       objectReference: {fileID: 0}
     - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
+      propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275794072280447643, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}

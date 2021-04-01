@@ -72,8 +72,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 34f32502fe642af42825f1fb1690d2d7, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.4
-    pitch: 1
+    volume: 0.2
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: Door-Whoosh
@@ -81,7 +81,7 @@ MonoBehaviour:
     pitchVariance: 0
     volumeVariance: 0
     volume: 0.06
-    pitch: 1
+    pitch: 0.4
     loop: 0
     source: {fileID: 0}
   - name: Door-Brrr
@@ -96,7 +96,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5dbb167c44b8adc47835b1b6152d0f2b, type: 3}
     pitchVariance: 0
     volumeVariance: 1
-    volume: 0.1
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b8b67f93753e0554699529c0c1408360, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.05
+    volume: 0.2
     pitch: 0.1
     loop: 1
     source: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c680825c9ecfe24429bcbb8dad365db5, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.2
+    volume: 0.3
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 95f045033f4e7984f99e8588fa912807, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.1
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}

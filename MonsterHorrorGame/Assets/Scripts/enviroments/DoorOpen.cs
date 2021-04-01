@@ -9,6 +9,9 @@ public class DoorOpen : MonoBehaviour
 
     [SerializeField] bool unlocked;
 
+    [SerializeField] AudioSource whoosh;
+
+
     bool beep = false;
     bool open = false;
 
@@ -58,8 +61,9 @@ public class DoorOpen : MonoBehaviour
         //{
         //beepAudio.Play();
         //}
+        whoosh.Play();
+        //FindObjectOfType<AudioManager>().Play("Door-Whoosh");
 
-        FindObjectOfType<AudioManager>().Play("Door-Whoosh");
     }
 
     IEnumerator TimeToClose()

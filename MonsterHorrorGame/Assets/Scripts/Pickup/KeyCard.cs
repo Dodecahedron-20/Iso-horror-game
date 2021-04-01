@@ -78,7 +78,7 @@ public class KeyCard : MonoBehaviour
 
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         interactIcon.SetActive(false);
         item = false;
     }
