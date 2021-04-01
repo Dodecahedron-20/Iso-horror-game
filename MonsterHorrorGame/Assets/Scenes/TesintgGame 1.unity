@@ -11778,7 +11778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &478427159
 Light:
   m_ObjectHideFlags: 0
@@ -22644,7 +22644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &929938182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32884,7 +32884,7 @@ MonoBehaviour:
   monsterPrefab: {fileID: 6017529007893335846, guid: 6d22117dc77064a4b95575aefa12992f, type: 3}
   monsterClone: {fileID: 0}
   monsterActive: 0
-  setTimer: 20
+  setTimer: 30
   currentTimer: 0
   spawnPoints: []
 --- !u!4 &1360365767
