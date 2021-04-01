@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MaxDistance
-      value: 11.470364
+      value: 14.950495
       objectReference: {fileID: 0}
     - target: {fileID: 624386960526090571, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: DopplerLevel
@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: MaxDistance
-      value: 13.131376
+      value: 10.455264
       objectReference: {fileID: 0}
     - target: {fileID: 8211618613337720446, guid: a7311649087f16d4fbaafb1030ca87a7, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
