@@ -154,7 +154,7 @@ MonoBehaviour:
   fovAngle: 60
   currentFOVAngle: 0
   radius: 10
-  walkSpeed: 1
+  walkSpeed: 3
   runSpeed: 5
   searchSpeed: 3.5
   fovSpeed: 1000

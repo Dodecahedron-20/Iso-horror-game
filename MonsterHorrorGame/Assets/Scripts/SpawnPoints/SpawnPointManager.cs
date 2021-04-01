@@ -21,14 +21,22 @@ public class SpawnPointManager : MonoBehaviour
             //Debug.Log("currently assesing player distance to spawn point" + i);
             float d = Vector3.Distance(player.gameObject.transform.position, spawnPoints[i].transform.position);
 
-            if (d > minDist && d < maxDist)
+            if (d < minDist)
+            {
+                spawnPoints[i].SetActive(false);
+            }
+            else
             {
                 spawnPoints[i].SetActive(true);
             }
-            else 
-            { 
-                spawnPoints[i].SetActive(false); 
-            }
+            //if (d > minDist && d < maxDist)
+            //{
+            //    spawnPoints[i].SetActive(true);
+            //}
+            //else 
+            //{ 
+            //    spawnPoints[i].SetActive(false); 
+            //}
         }
     }
 }
