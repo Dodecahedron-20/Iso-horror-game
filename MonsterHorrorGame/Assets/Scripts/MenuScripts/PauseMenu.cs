@@ -38,6 +38,9 @@ public class PauseMenu : MonoBehaviour
     private GameObject youDiedText = null;
 
     [SerializeField]
+    private GameObject winText = null;
+
+    [SerializeField]
     private GameObject falldeathText = null;
     [SerializeField]
     private GameObject fallUI = null;
@@ -216,12 +219,22 @@ public class PauseMenu : MonoBehaviour
     //wining the game
     public void WinGame()
     {
+        StartCoroutine(Winning());
+
+    }
+
+    IEnumerator Winning()
+    {
         black.SetActive(true);
-        winPage.SetActive(true);
+        winText.SetActive(true);
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Game");
+        yield return new WaitForSeconds(2f);
+        winText.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+        winPage.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-
     }
 
 

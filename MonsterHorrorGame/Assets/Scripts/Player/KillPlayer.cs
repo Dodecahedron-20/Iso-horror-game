@@ -28,7 +28,8 @@ public class KillPlayer : MonoBehaviour
     IEnumerator Kill()
     {
         yield return new WaitForSeconds(0.01f);
-        player.GetComponent<Player>().moveSpeed = 0f;
+        //player.GetComponent<Player>().moveSpeed = 0f;
+        player.GetComponent<Player>().Death();
         monster.GetComponent<Monster>().nav.enabled = false;
         yield return new WaitForSeconds(0.5f);
         //animation for player death

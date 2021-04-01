@@ -25,11 +25,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2688293303939326988}
   m_LocalRotation: {x: 0.7057637, y: -0, z: -0, w: 0.7084474}
-  m_LocalPosition: {x: 0, y: 3.252, z: 0.176}
+  m_LocalPosition: {x: 0, y: 3.2519999, z: 0.176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7145489249652539741}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 89.784, y: 0, z: 0}
 --- !u!108 &6824721905370086071
 Light:
@@ -392,8 +392,8 @@ Transform:
   - {fileID: 6268032322026407077}
   - {fileID: 7145489249199408611}
   - {fileID: 7145489250729032844}
-  - {fileID: 7145489249695564817}
   - {fileID: 6927107217267916728}
+  - {fileID: 7145489249695564817}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -494,6 +494,7 @@ MonoBehaviour:
   maxStamina: 100
   currentStamina: 0
   staminaToUse: 0
+  staminaNumberText: {fileID: 0}
   staminaBar: {fileID: 0}
   staminaBarTwo: {fileID: 0}
   isSprinting: 0
@@ -531,7 +532,7 @@ Transform:
   - {fileID: 7145489248720995696}
   - {fileID: 7145489250248645399}
   m_Father: {fileID: 7145489249652539741}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7145489250729032843
 GameObject:

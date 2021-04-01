@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] bool isSprinting = false;
     [SerializeField] bool isMoving = false;
-    bool isDead;
+    bool isDead = false;
 
     [HideInInspector]
     public GameObject[] waypoint;
@@ -68,47 +68,50 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
-        {
-            StaminaRegen();
-        }
-
-        if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
-        {
-            Move();
-        }
-        else
-        {
-            isMoving = false;
-            anim.SetBool("run", false);
-            anim.SetBool("walk", false);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if(isMoving == true)
+       if (isDead == false)
+       {
+            if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
             {
-                if (currentStamina > 0)
+                StaminaRegen();
+            }
+
+            if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
+            {
+                Move();
+            }
+            else
+            {
+                isMoving = false;
+                anim.SetBool("run", false);
+                anim.SetBool("walk", false);
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (isMoving == true)
                 {
-                    anim.SetBool("run", true);
-                    isSprinting = true;
-                    Sprint();
+                    if (currentStamina > 0)
+                    {
+                        anim.SetBool("run", true);
+                        isSprinting = true;
+                        Sprint();
+                    }
+                    else
+                    {
+                        moveSpeed = walkSpeed;
+                        isSprinting = false;
+                        anim.SetBool("run", false);
+                        anim.SetBool("walk", true);
+                    }
                 }
-                else
-                {
-                    moveSpeed = walkSpeed;
-                    isSprinting = false;
-                    anim.SetBool("run", false);
-                    anim.SetBool("walk", true);
-                }
-            }           
-        }
-        else
-        {
-            moveSpeed = walkSpeed;
-            isSprinting = false;
-            anim.SetBool("run", false);
-        }
+            }
+            else
+            {
+                moveSpeed = walkSpeed;
+                isSprinting = false;
+                anim.SetBool("run", false);
+            }
+       }      
     }
 
     private void Move()
@@ -156,11 +159,13 @@ public class Player : MonoBehaviour
         
     }
 
-    //public void Death()
-    //{
-    //    moveSpeed = 0;
-    //    add animation here
-    //}
+    public void Death()
+    {
+        moveSpeed = 0;
+        isDead = true;
+        anim.SetBool("Dead", true);
+       
+    }
 
     //public void PlayerSteps()
     //{

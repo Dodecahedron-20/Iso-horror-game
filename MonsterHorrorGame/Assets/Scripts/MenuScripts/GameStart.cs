@@ -33,7 +33,7 @@ public class GameStart : MonoBehaviour
       blackground.SetActive(true);
       text.SetActive(true);
       StartCoroutine(Intro());
-
+        //FindObjectOfType<AudioManager>().Play("Siren1");
 
 
 
