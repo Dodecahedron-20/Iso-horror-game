@@ -348,6 +348,7 @@ namespace SensorToolkit
         protected static readonly Color AttractionVectorColor = new Color(51 / 255f, 255 / 255f, 255 / 255f);
         protected static readonly Color RepulsionVectorColor = Color.yellow;
         protected static readonly Color AvoidanceVectorColor = Color.green;
+#if UNITY_EDITOR
         public void OnDrawGizmosSelected()
         {
             if (!isActiveAndEnabled) return;
@@ -363,5 +364,6 @@ namespace SensorToolkit
             Gizmos.color = AvoidanceVectorColor;
             Gizmos.DrawLine(transform.position, avoidancePoint);
         }
+#endif
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#if UNITY_EDITOR
 public class Waypoint : MonoBehaviour
 { 
     [SerializeField] 
@@ -13,3 +13,4 @@ public class Waypoint : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, debugDrawRadius);
     }
 }
+#endif

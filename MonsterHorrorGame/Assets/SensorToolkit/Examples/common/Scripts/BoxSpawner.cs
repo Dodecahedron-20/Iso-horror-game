@@ -114,6 +114,7 @@ namespace SensorToolkit.Example
         protected static readonly Color MagentaColor = Color.magenta;
         protected static readonly Color NoneColor = Color.green;
         protected static readonly Color RedColor = Color.red;
+#if UNITY_EDITOR
         public void OnDrawGizmosSelected()
         {
             if (!isActiveAndEnabled) return;
@@ -126,5 +127,6 @@ namespace SensorToolkit.Example
             Gizmos.color = RedColor;
             Gizmos.DrawSphere(transform.position + Vector3.up * (SizeY / 2f + ClearRadius), ClearRadius);
         }
+#endif
     }
 }

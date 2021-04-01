@@ -6,7 +6,7 @@ namespace SensorToolkit
     public class LOSTargets : MonoBehaviour
     {
         public Transform[] Targets;
-
+#if UNITY_EDITOR
         protected static readonly Color GizmoColor = new Color(51 / 255f, 255 / 255f, 255 / 255f);
         public virtual void OnDrawGizmosSelected()
         {
@@ -19,5 +19,6 @@ namespace SensorToolkit
                 Gizmos.DrawCube(t.position, Vector3.one * 0.1f);
             }
         }
+#endif
     }
 }

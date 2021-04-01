@@ -699,7 +699,7 @@ namespace SensorToolkit
                 rayCastTargets.Remove(forGameObject);
             }
         }
-
+#if UNITY_EDITOR
         protected static readonly Color GizmoColor = new Color(51 / 255f, 255 / 255f, 255 / 255f);
         protected static readonly Color GizmoBlockedColor = Color.red;
         public virtual void OnDrawGizmosSelected()
@@ -736,5 +736,6 @@ namespace SensorToolkit
                 }
             }
         }
+#endif
     }
 }

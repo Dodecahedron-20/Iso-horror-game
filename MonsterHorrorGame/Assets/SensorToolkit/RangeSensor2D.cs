@@ -162,7 +162,7 @@ namespace SensorToolkit
             clearColliders();
             CurrentBufferSize = 0;
         }
-
+#if UNITY_EDITOR
         public override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
@@ -171,5 +171,6 @@ namespace SensorToolkit
             Gizmos.color = GizmoColor;
             Gizmos.DrawWireSphere(transform.position, SensorRange);
         }
+#endif
     }
 }

@@ -170,7 +170,7 @@ namespace SensorToolkit
                 DestroyImmediate(mc.sharedMesh, true);
             }
         }
-
+#if UNITY_EDITOR
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
@@ -179,5 +179,6 @@ namespace SensorToolkit
                 Gizmos.DrawSphere(transform.TransformPoint(p), 0.1f);
             }
         }
+#endif
     }
 }

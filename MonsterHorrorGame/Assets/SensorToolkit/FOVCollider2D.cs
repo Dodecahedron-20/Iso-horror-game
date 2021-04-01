@@ -94,7 +94,7 @@ namespace SensorToolkit
             mesh.triangles = triangles;
             mesh.name = "FOV2DColliderPoints";
         }
-
+#if UNITY_EDITOR
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
@@ -103,5 +103,6 @@ namespace SensorToolkit
                 Gizmos.DrawSphere(transform.TransformPoint(p), 0.1f);
             }
         }
+#endif
     }
 }

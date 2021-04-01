@@ -31,7 +31,7 @@ namespace Waypoints
                 }
             }
         }
-
+#if UNITY_EDITOR
         public override void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -40,6 +40,7 @@ namespace Waypoints
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _connectivityRadius);
         }
+#endif
 
         public ConnectedWaypoint NextWaypoint(ConnectedWaypoint previousWaypoint)
         {

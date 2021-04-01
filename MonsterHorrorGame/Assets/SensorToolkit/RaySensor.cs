@@ -404,6 +404,7 @@ namespace SensorToolkit
                 return primitiveCylinderCache;
             }
         }
+        #if UNITY_EDITOR
         public void OnDrawGizmosSelected()
         {
             if (!isActiveAndEnabled) return;
@@ -445,6 +446,7 @@ namespace SensorToolkit
             {
                 Gizmos.DrawIcon(hit.point, "SensorToolkit/eye.png", true);
             }
-        }
+        } 
+        #endif
     }
 }
