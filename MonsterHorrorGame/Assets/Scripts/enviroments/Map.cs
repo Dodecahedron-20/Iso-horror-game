@@ -41,8 +41,8 @@ public class Map : MonoBehaviour
                 //interact = false;
                 computerMapMenu.SetActive(true);
                 warning.SetActive(true);
-                fullmap.SetActive(true);
-                zoomMap.SetActive(false);
+                //fullmap.SetActive(true);
+                //zoomMap.SetActive(false);
                 StartCoroutine(WarningOff());
                 active = true;
                 Cursor.lockState = CursorLockMode.None;

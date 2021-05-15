@@ -48,7 +48,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 02328d327f9a5fd4181915286e28bc0e, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.5
+    volume: 0.05
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 34f32502fe642af42825f1fb1690d2d7, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.02
+    volume: 0.1
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fcd655166fe2c40d280c8c7dadf8c451, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.04
+    volume: 0.1
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b8b67f93753e0554699529c0c1408360, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.04
+    volume: 0.1
     pitch: 0.1
     loop: 1
     source: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cf8f6c8367ff6ab45bb4964c7abe07d5, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.05
+    volume: 0.1
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5fedcb1d8621a004ca6bb028e6b9e377, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.05
+    volume: 0.1
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 95f045033f4e7984f99e8588fa912807, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.04
+    volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
