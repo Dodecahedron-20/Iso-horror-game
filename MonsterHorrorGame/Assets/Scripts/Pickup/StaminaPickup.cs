@@ -11,6 +11,9 @@ public class StaminaPickup : MonoBehaviour
     [SerializeField]
     private GameObject interactIcon = null;
 
+    [SerializeField]
+    private PauseMenu pm;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && item == true)
@@ -34,6 +37,7 @@ public class StaminaPickup : MonoBehaviour
         
         interactIcon.SetActive(false);
         item = false;
+        pm.StaminaCollect();
         player.StaminaCollect();
         Destroy(gameObject);
     }

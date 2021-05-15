@@ -32,7 +32,13 @@ public class KeyCard : MonoBehaviour
 
     private bool item = false;
 
+    //the specific card:
+    [SerializeField] bool blue = false;
+    [SerializeField] bool green = false;
+    [SerializeField] bool purple = false;
 
+    [SerializeField]
+    private PauseMenu pm;
 
     private void Start()
     {
@@ -63,6 +69,19 @@ public class KeyCard : MonoBehaviour
         cardIcon.SetActive(true);
         interactIcon.SetActive(false);
         item = false;
+        if(blue)
+        {
+            pm.BlueCardCollect();
+            //GameAnalytics.NewDesignEvent(name);
+        }
+        if (green)
+        {
+            pm.GreenCardCollect();
+        }
+        if(purple)
+        {
+            pm.PurpleCardCollect();
+        }
         //GameAnalytics.NewDesignEvent(name);
         Destroy(keyCard);
     }

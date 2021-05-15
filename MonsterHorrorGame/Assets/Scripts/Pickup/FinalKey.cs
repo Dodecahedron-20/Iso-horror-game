@@ -21,6 +21,9 @@ public class FinalKey : MonoBehaviour
 
     private bool item = false;
 
+    [SerializeField]
+    private PauseMenu pm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class FinalKey : MonoBehaviour
         door.UnLock();
         keyIcon.SetActive(true);
         interactIcon.SetActive(false);
+        pm.KeyCollect();
         GameAnalytics.NewDesignEvent("Key");
         Destroy(key);
     }

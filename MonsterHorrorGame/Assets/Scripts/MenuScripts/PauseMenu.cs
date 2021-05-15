@@ -64,6 +64,12 @@ public class PauseMenu : MonoBehaviour
     private GameObject keyIcon = null;
     [SerializeField]
     private GameObject staminaIcon = null;
+
+    private bool firstpickup = false;
+    [SerializeField]
+    private GameObject tabexplain = null;
+    [SerializeField]
+    private Text explainText = null;
     //[SerializeField]
     //private Text staminaNumberText = "x0";
     [SerializeField]
@@ -213,23 +219,42 @@ public class PauseMenu : MonoBehaviour
         collectScreen.SetActive(true);
         collectedItemText.text = "torch";
         torchIcon.SetActive(true);
+        InvenExplain();
         StartCoroutine(IconOff());
       }
+
+    private void InvenExplain()
+    {
+        if(firstpickup == false)
+        {
+            tabexplain.SetActive(true);
+            explainText.text = "Press TAB for Inventory";
+            firstpickup = true;
+        }
+    }
 
       public void StaminaCollect()
       {
         collectScreen.SetActive(true);
         collectedItemText.text = "Stamina";
         staminaIcon.SetActive(true);
+        StaminaExplain();
         //staminaNumberText.text = "";
         StartCoroutine(IconOff());
       }
+
+    private void StaminaExplain()
+    {
+        tabexplain.SetActive(true);
+        explainText.text = "Press Q to use Stamina";
+    }
 
     public void BlueCardCollect()
     {
         collectScreen.SetActive(true);
         collectedItemText.text = "Blue Keycard";
         blueCardIcon.SetActive(true);
+        InvenExplain();
         StartCoroutine(IconOff());
     }
     public void PurpleCardCollect()
@@ -257,8 +282,8 @@ public class PauseMenu : MonoBehaviour
 
 
     IEnumerator IconOff()
-      {
-        yield return new WaitForSeconds(2);
+    {
+        yield return new WaitForSeconds(1.5f);
         collectScreen.SetActive(false);
         torchIcon.SetActive(false);
         blueCardIcon.SetActive(false);
@@ -266,8 +291,8 @@ public class PauseMenu : MonoBehaviour
         greenCardIcon.SetActive(false);
         keyIcon.SetActive(false);
         staminaIcon.SetActive(false);
-
-      }
+        tabexplain.SetActive(false);
+    }
 
 
 
