@@ -41,8 +41,8 @@ public class Map : MonoBehaviour
                 //interact = false;
                 computerMapMenu.SetActive(true);
                 warning.SetActive(true);
-                //fullmap.SetActive(true);
-                //zoomMap.SetActive(false);
+                fullmap.SetActive(true);
+                zoomMap.SetActive(false);
                 StartCoroutine(WarningOff());
                 active = true;
                 Cursor.lockState = CursorLockMode.None;
@@ -73,7 +73,7 @@ public class Map : MonoBehaviour
     IEnumerator Timer()
     {
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         if (active == false)
         {
             interactIcon.SetActive(false);
@@ -83,7 +83,7 @@ public class Map : MonoBehaviour
 
     IEnumerator WarningOff()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         warning.SetActive(false);
     }
 

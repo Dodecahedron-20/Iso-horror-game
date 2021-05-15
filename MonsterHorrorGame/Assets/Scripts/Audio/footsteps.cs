@@ -24,6 +24,7 @@ public class footsteps : MonoBehaviour
     public void Run()
     {
         runClip.Play();
+
     }
 
     public void Walk()

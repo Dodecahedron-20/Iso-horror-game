@@ -40,7 +40,7 @@ public class CabnetOpen : MonoBehaviour
 
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         interactIcon.SetActive(false);
         interact = false;
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class KeyCard : MonoBehaviour
 {
@@ -72,15 +73,17 @@ public class KeyCard : MonoBehaviour
         if(blue)
         {
             pm.BlueCardCollect();
-            //GameAnalytics.NewDesignEvent(name);
+            GameAnalytics.NewDesignEvent("BlueCard");
         }
         if (green)
         {
             pm.GreenCardCollect();
+            GameAnalytics.NewDesignEvent("GreenCard");
         }
         if(purple)
         {
             pm.PurpleCardCollect();
+            GameAnalytics.NewDesignEvent("PurpleCard");
         }
         //GameAnalytics.NewDesignEvent(name);
         Destroy(keyCard);
