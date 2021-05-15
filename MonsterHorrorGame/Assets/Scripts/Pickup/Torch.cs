@@ -24,6 +24,9 @@ public class Torch : MonoBehaviour
 
     private bool item = false;
 
+    [SerializeField]
+    private PauseMenu pm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +59,7 @@ public class Torch : MonoBehaviour
         torchIcon.SetActive(true);
         playerLight.SetActive(true);
         interactIcon.SetActive(false);
+        //pm.TorchCollect();
         item = false;
         GameAnalytics.NewDesignEvent("torch");
         Destroy(torch);

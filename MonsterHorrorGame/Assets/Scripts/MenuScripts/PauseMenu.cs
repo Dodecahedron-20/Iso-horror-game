@@ -22,6 +22,10 @@ public class PauseMenu : MonoBehaviour
     private GameObject inventory;
     private bool checkinven = false;
 
+    //Control info Page
+    [SerializeField]
+    private GameObject ctrlInfo = null;
+
     //end game things:
     private bool lost = false;
 
@@ -46,6 +50,8 @@ public class PauseMenu : MonoBehaviour
     private GameObject fallUI = null;
 
     //collection popup confirms:
+    [SerializeField]
+    private Text collectedItemText = null;
     [SerializeField]
     private GameObject torchIcon = null;
     [SerializeField]
@@ -136,6 +142,7 @@ public class PauseMenu : MonoBehaviour
         paused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        ctrlInfo.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -165,6 +172,21 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void ControlInfoON()
+    {
+        FindObjectOfType<AudioManager>().Play("UI-Click");
+        ctrlInfo.SetActive(true);
+        pauseMenu.SetActive(false);
+
+    }
+    public void ControlInfoOFF()
+    {
+        FindObjectOfType<AudioManager>().Play("UI-Click");
+        ctrlInfo.SetActive(false); 
+        pauseMenu.SetActive(true);
+    }
+
+
     //inventory
     private void InventoryON()
     {
@@ -189,6 +211,7 @@ public class PauseMenu : MonoBehaviour
       public void TorchCollect()
       {
         collectScreen.SetActive(true);
+        collectedItemText.text = "torch";
         torchIcon.SetActive(true);
         StartCoroutine(IconOff());
       }
@@ -196,12 +219,44 @@ public class PauseMenu : MonoBehaviour
       public void StaminaCollect()
       {
         collectScreen.SetActive(true);
+        collectedItemText.text = "Stamina";
         staminaIcon.SetActive(true);
         //staminaNumberText.text = "";
         StartCoroutine(IconOff());
       }
 
-      IEnumerator IconOff()
+    public void BlueCardCollect()
+    {
+        collectScreen.SetActive(true);
+        collectedItemText.text = "Blue Keycard";
+        blueCardIcon.SetActive(true);
+        StartCoroutine(IconOff());
+    }
+    public void PurpleCardCollect()
+    {
+        collectScreen.SetActive(true);
+        collectedItemText.text = "Purple Keycard";
+        purpleCardIcon.SetActive(true);
+        StartCoroutine(IconOff());
+    }
+    public void GreenCardCollect()
+    {
+        collectScreen.SetActive(true);
+        collectedItemText.text = "Green Keycard";
+        greenCardIcon.SetActive(true);
+        StartCoroutine(IconOff());
+    }
+    public void KeyCollect()
+    {
+        collectScreen.SetActive(true);
+        collectedItemText.text = "Key";
+        keyIcon.SetActive(true);
+        StartCoroutine(IconOff());
+    }
+
+
+
+    IEnumerator IconOff()
       {
         yield return new WaitForSeconds(2);
         collectScreen.SetActive(false);
