@@ -108,7 +108,6 @@ public class Monster : MonoBehaviour
     //Checks to see if there is a target within it's field of view angle using a raycast
     void FindVisibleTargets()
     {
-        Debug.Log("hey im lookin here");
         visibleTargets.Clear();
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, radius, targetMask);

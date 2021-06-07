@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class MonsterDirector : MonoBehaviour
 {
-    public Transform monsterPrefab;
-    public Transform monsterClone;
+    [SerializeField]
+    private Transform monsterPrefab;
+    [SerializeField]
+    private Transform monsterClone;
 
-    [SerializeField] bool monsterActive;
+    [SerializeField] 
+    private bool monsterActive;
+
+    [SerializeField]
+    private bool monsterCloneActive;
+
     public float setTimer;
-    [SerializeField]
-    float currentTimer;
 
     [SerializeField]
-    public GameObject[] spawnPoints;
+    private float currentTimer;
+
+    [SerializeField]
+    private GameObject[] spawnPoints;
 
     void Start()
     {
@@ -36,12 +44,12 @@ public class MonsterDirector : MonoBehaviour
 
     void CheckMonsterStatus()
     {
-        if (monsterActive == false)
+        if (monsterActive != true)
         {
             SpawnMonster();
         }
 
-        if (monsterActive == true)
+        if (monsterActive != false)
         {
             DespawnMonster();
         }
@@ -49,9 +57,9 @@ public class MonsterDirector : MonoBehaviour
 
     void SpawnMonster()
     {
-        var player = GetComponent<Player>();
+        //var player = GetComponent<Player>();
 
-        if (currentTimer <= 0 && monsterActive == false)
+        if (currentTimer <= 0 && monsterActive != true)
         {
             monsterClone = Instantiate(monsterPrefab.gameObject, spawnPoints[RandomSpawnPoint()].transform.position, Quaternion.identity).transform;
             monsterActive = true;

@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-       if (isDead == false)
+       if (isDead != true)
        {
             if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
             {
