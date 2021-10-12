@@ -45,7 +45,7 @@ public class FinalKey : MonoBehaviour
         {
             item = true;
             interactIcon.SetActive(true);
-            StartCoroutine(Timer());
+            //StartCoroutine(Timer());
         }
     }
 
@@ -59,10 +59,19 @@ public class FinalKey : MonoBehaviour
         Destroy(key);
     }
 
-    IEnumerator Timer()
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(3f);
-        interactIcon.SetActive(false);
-        item = false;
+        if (other.gameObject.tag == "Player")
+        {
+            interactIcon.SetActive(false);
+            item = false;
+        }
     }
+
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(3f);
+    //    interactIcon.SetActive(false);
+    //    item = false;
+    //}
 }

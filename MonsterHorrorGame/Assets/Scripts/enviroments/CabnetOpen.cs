@@ -34,16 +34,26 @@ public class CabnetOpen : MonoBehaviour
         {
             interactIcon.SetActive(true);
             interact = true;
-            StartCoroutine(Timer());
+            //StartCoroutine(Timer());
         }
     }
 
-    IEnumerator Timer()
+
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(5f);
-        interactIcon.SetActive(false);
-        interact = false;
+        if (other.tag == "Player")
+        {
+            interactIcon.SetActive(false);
+            interact = false;
+        }
     }
+
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(5f);
+    //    interactIcon.SetActive(false);
+    //    interact = false;
+    //}
 
     private void OpenDraw()
     {

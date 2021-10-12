@@ -246,7 +246,7 @@ public class PauseMenu : MonoBehaviour
     private void StaminaExplain()
     {
         tabexplain.SetActive(true);
-        explainText.text = "Press Q to use Stamina";
+        explainText.text = "Press Q to refill Stamina";
     }
 
     public void BlueCardCollect()

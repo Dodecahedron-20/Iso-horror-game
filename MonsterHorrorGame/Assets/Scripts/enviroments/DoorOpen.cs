@@ -28,18 +28,8 @@ public class DoorOpen : MonoBehaviour
         {
             if (unlocked == true)
             {
-              if (open == false)
-              {
                 anim.SetTrigger("opendoor");
-                open = true;
-                StartCoroutine(TimeToClose());
-              }
-              else
-              {
-                anim.SetTrigger("closedoor");
-                open = false;
-              }
-
+                open = true;                     
             }
             else
             {
@@ -66,13 +56,16 @@ public class DoorOpen : MonoBehaviour
 
     }
 
-    IEnumerator TimeToClose()
+    private void OnTriggerExit(Collider other)
     {
-      yield return new WaitForSeconds(2f);
-      if (open)
-      {
-        anim.SetTrigger("closedoor");
-        open = false;
-      }
+        if (other.gameObject.tag == "Player")
+        {
+            if (open)
+            {
+                anim.SetTrigger("closedoor");
+                open = false;
+            }
+        }
     }
+
 }

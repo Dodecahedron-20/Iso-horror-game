@@ -33041,6 +33041,7 @@ MonoBehaviour:
   monsterPrefab: {fileID: 6017529007893335846, guid: 6d22117dc77064a4b95575aefa12992f, type: 3}
   monsterClone: {fileID: 0}
   monsterActive: 0
+  monsterCloneActive: 0
   setTimer: 25
   currentTimer: 0
   spawnPoints: []
@@ -43013,6 +43014,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Map, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1863484717925149457, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1983848208062077824, guid: 0fe0b4cc3df192542b20b4f1416efbf5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -50041,7 +50046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2111370748
 Light:
   m_ObjectHideFlags: 0

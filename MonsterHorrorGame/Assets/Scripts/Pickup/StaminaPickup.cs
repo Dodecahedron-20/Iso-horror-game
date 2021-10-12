@@ -28,7 +28,7 @@ public class StaminaPickup : MonoBehaviour
         {
             item = true;
             interactIcon.SetActive(true);
-            StartCoroutine(Timer());
+            //StartCoroutine(Timer());
         }
     }
 
@@ -42,11 +42,19 @@ public class StaminaPickup : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    IEnumerator Timer()
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(10f);
-        interactIcon.SetActive(false);
-        item = false;
+        if (other.gameObject.tag == "Player")
+        {
+            interactIcon.SetActive(false);
+            item = false;
+        }
     }
+
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(10f);
+    //    interactIcon.SetActive(false);
+    //    item = false;
+    //}
 }

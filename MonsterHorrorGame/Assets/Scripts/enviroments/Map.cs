@@ -66,24 +66,33 @@ public class Map : MonoBehaviour
         {
             interact = true;
             interactIcon.SetActive(true);
-            StartCoroutine(Timer());
+            //StartCoroutine(Timer());
         }
     }
 
-    IEnumerator Timer()
+    private void OnTriggerExit(Collider other)
     {
-
-        yield return new WaitForSeconds(2f);
-        if (active == false)
+        if (other.gameObject.tag == "Player")
         {
             interactIcon.SetActive(false);
             interact = false;
         }
     }
 
+    //IEnumerator Timer()
+    //{
+
+    //    yield return new WaitForSeconds(2f);
+    //    if (active == false)
+    //    {
+    //        interactIcon.SetActive(false);
+    //        interact = false;
+    //    }
+    //}
+
     IEnumerator WarningOff()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         warning.SetActive(false);
     }
 
