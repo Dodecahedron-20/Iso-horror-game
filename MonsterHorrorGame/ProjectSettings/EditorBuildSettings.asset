@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu 1.unity
     guid: 5dba884be3940476fbf532b744b8d95e
   - enabled: 1
-    path: Assets/Scenes/DancingMonster.unity
-    guid: cff3116c2a467e84a8cd7efd25815387
-  - enabled: 1
     path: Assets/Scenes/TesintgGame 1.unity
     guid: affde467973352245a2d3014e0d7bf15
+  - enabled: 1
+    path: Assets/Scenes/DancingMonster.unity
+    guid: cff3116c2a467e84a8cd7efd25815387
   m_configObjects: {}

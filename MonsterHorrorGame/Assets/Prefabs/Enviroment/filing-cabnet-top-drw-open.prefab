@@ -359,6 +359,7 @@ MonoBehaviour:
   interactIcon: {fileID: 0}
   anim: {fileID: 8321172372484122299}
   contents: {fileID: 8276541339316522963}
+  hasItems: 0
 --- !u!65 &7541756069814644082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -370,8 +371,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9061075, y: 0.6213729, z: 3.5093224}
-  m_Center: {x: -0.020575922, y: 0.18931364, z: 2.659148}
+  m_Size: {x: 3.698847, y: 0.6213729, z: 3.5093224}
+  m_Center: {x: -0.09267999, y: 0.18931364, z: 2.6591485}
 --- !u!1 &7184591805755486454
 GameObject:
   m_ObjectHideFlags: 0

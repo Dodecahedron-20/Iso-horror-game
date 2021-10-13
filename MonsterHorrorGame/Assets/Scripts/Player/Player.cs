@@ -40,6 +40,11 @@ public class Player : MonoBehaviour
 
     Vector3 forward, right;
 
+    //testing smoothing out the movement:
+    //private float turnSmoothTime = 0.1f;
+    //private float turnSmoothVelocity;
+
+
     [SerializeField]
     private Animator anim;
 
@@ -123,6 +128,8 @@ public class Player : MonoBehaviour
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("VerticalKey");
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+
+        //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, heading, ref turnSmoothVelocity, turnSmoothTime);
 
         transform.forward = heading;
         transform.position += rightMovement;

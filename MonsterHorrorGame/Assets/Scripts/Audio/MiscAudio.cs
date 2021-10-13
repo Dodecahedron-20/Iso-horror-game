@@ -60,11 +60,14 @@ public class MiscAudio : MonoBehaviour
             lab = true;
             StartCoroutine(LabAudio());
         }
-        else if (other.tag == "Player")
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
         {
             lab = false;
         }
-
     }
 
     //does this need to be it's own method???
