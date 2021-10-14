@@ -26,7 +26,7 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Monster")
         {
-            if (unlocked == true)
+            if (unlocked == true || other.gameObject.tag == "Monster")
             {
                 anim.SetTrigger("opendoor");
                 open = true;                     
@@ -58,7 +58,7 @@ public class DoorOpen : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Monster")
         {
             if (open)
             {
