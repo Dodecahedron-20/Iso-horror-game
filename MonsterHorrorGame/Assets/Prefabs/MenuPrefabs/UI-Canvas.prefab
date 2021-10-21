@@ -1256,12 +1256,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: Map, Assembly-CSharp
+        m_MethodName: CloseupMapON
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1674,7 +1674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7367170189288161483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1827,7 +1827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1587340214142864483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2653,7 +2653,7 @@ GameObject:
   - component: {fileID: 5486485846390444825}
   - component: {fileID: 586576778930630390}
   m_Layer: 5
-  m_Name: Tab-for-inventory
+  m_Name: Explanations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4290,12 +4290,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: Map, Assembly-CSharp
+        m_MethodName: CloseupMapOFF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6118,10 +6118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1.5
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6524,10 +6524,10 @@ RectTransform:
   m_Father: {fileID: 5989641167830837673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1400, y: 800}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9083804989632661086
 CanvasRenderer:
@@ -9411,7 +9411,7 @@ PrefabInstance:
     - target: {fileID: 6214604001680143633, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
       propertyPath: black
       value: 
-      objectReference: {fileID: 4141713140021111724}
+      objectReference: {fileID: 2678453815661180957}
     - target: {fileID: 6214604001680143633, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
       propertyPath: anim
       value: 
@@ -9480,12 +9480,25 @@ PrefabInstance:
       propertyPath: explainText
       value: 
       objectReference: {fileID: 6772985997444941132}
+    - target: {fileID: 6214604001680143633, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
+      propertyPath: ctrlInfo
+      value: 
+      objectReference: {fileID: 5456299828751647256}
     - target: {fileID: 6214604001680143662, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
       propertyPath: m_Name
       value: PauseMenuScript
       objectReference: {fileID: 0}
+    - target: {fileID: 6214604001680143662, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
+--- !u!224 &5989641166399051628 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6214604001680143632, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
+  m_PrefabInstance: {fileID: 369804800677126780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5989641166399051629 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6214604001680143633, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
@@ -9497,11 +9510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402214557ec02400794e6ecf4a375c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5989641166399051628 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6214604001680143632, guid: b80a33b1faf60294c997bc2d0802870e, type: 3}
-  m_PrefabInstance: {fileID: 369804800677126780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &979675751962142221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10184,6 +10192,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5106007787263278082}
     m_Modifications:
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Map, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MapDone
+      objectReference: {fileID: 0}
     - target: {fileID: 2081699984929057243, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Text
       value: done
@@ -10611,6 +10627,10 @@ PrefabInstance:
       propertyPath: intro
       value: 
       objectReference: {fileID: 4086829958052946822}
+    - target: {fileID: 7265403788613312136, guid: afe0f2605e5ac41b3bf01979850e430f, type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 5989641166399051629}
     - target: {fileID: 7265403788613312137, guid: afe0f2605e5ac41b3bf01979850e430f, type: 3}
       propertyPath: m_Name
       value: BeginningGameCut
@@ -10763,11 +10783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4185411144225458878, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4185411144225458878, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199338627542882471, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_Sprite
@@ -10823,6 +10843,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8021184094149248769}
     m_Modifications:
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchLight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LightsOn
+      objectReference: {fileID: 0}
     - target: {fileID: 2081699984929057243, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Text
       value: Lights on
@@ -10921,7 +10949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Name
-      value: lightsButton (5)
+      value: lightsButton on
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_IsActive
@@ -11055,6 +11083,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8021184094149248769}
     m_Modifications:
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchLight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LightsOff
+      objectReference: {fileID: 0}
     - target: {fileID: 2081699984929057243, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Text
       value: Lights off
@@ -11153,7 +11189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Name
-      value: lightsButton (4)
+      value: lightsButton off
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_IsActive
@@ -12197,6 +12233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5989641167830837673}
     m_Modifications:
+    - target: {fileID: 555474989252557047, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12247,11 +12287,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 600
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -12263,7 +12303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -12271,7 +12311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 955429331076529453, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
       propertyPath: m_Pivot.x
@@ -12293,6 +12333,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaminaBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.75686276
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b6e4bb49b78897b418e95b7020b4de0d, type: 3}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268882648372842784, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ac43cb0aa625645af975f7b513c76a, type: 3}
 --- !u!224 &6816801149179427390 stripped
@@ -12307,6 +12371,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5272911643712246002}
     m_Modifications:
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchLight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702107610291511606, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LightsDone
+      objectReference: {fileID: 0}
     - target: {fileID: 2081699984929057243, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Text
       value: done
@@ -12405,7 +12477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_Name
-      value: lightsButton (6)
+      value: lightsButton done
       objectReference: {fileID: 0}
     - target: {fileID: 4121342626621638430, guid: 585aa2edccb4442de9aadbdbc1d6c36f, type: 3}
       propertyPath: m_IsActive
@@ -12751,6 +12823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9345a7b8de0554b6d83bb366792558fe, type: 3}
+--- !u!1 &2678453815661180957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5756846637883273925, guid: 9345a7b8de0554b6d83bb366792558fe, type: 3}
+  m_PrefabInstance: {fileID: 7696557248002722520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5365037326161138608 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2358719674849614184, guid: 9345a7b8de0554b6d83bb366792558fe, type: 3}
@@ -13009,14 +13086,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5f84abdc20024e778bca25e6ddf203e, type: 3}
---- !u!1 &2574120739649558235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6121164890079653746, guid: f5f84abdc20024e778bca25e6ddf203e, type: 3}
-  m_PrefabInstance: {fileID: 8596142597373524393}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2574120739649558232 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6121164890079653745, guid: f5f84abdc20024e778bca25e6ddf203e, type: 3}
+  m_PrefabInstance: {fileID: 8596142597373524393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2574120739649558235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6121164890079653746, guid: f5f84abdc20024e778bca25e6ddf203e, type: 3}
   m_PrefabInstance: {fileID: 8596142597373524393}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8843440473983121225

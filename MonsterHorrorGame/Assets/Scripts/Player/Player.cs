@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
        if (isDead != true)
        {
-            if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0)
+            if (Input.GetKeyDown(KeyCode.Q) && spareStamina > 0 && currentStamina < maxStamina)
             {
                 StaminaRegen();
             }
@@ -161,6 +161,7 @@ public class Player : MonoBehaviour
         spareStamina -= 1;
         staminaNumberText.text = "Stamina: " + spareStamina;
         currentStamina += maxStamina;
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         staminaBar.value = currentStamina;
         staminaBarTwo.value = currentStamina;
         
